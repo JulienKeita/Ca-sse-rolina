@@ -1,0 +1,32 @@
+<h1>Les plats</h1>
+<form class="form-inline">
+	<div class="form-group">
+		<input type="text" class="form-control" id="inputMessage" 
+			   placeholder="Votre plat" ng-model="description">
+        <input type="text" class="form-control" id="inputMessage" 
+			   placeholder="note" ng-model="note">
+        <input type="text" class="form-control" id="inputMessage" 
+			   placeholder="commentaires" ng-model="commentaires">
+       
+	</div>
+	<button type="submit" class="btn btn-default" ng-click="add()">Add</button>
+</form>
+<hr>
+<ul class="list-group">
+	<li class="list-group-item" ng-repeat="plat in plats">
+		<form class="form-inline">
+			<div class="form-group">
+				<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="plat.description">
+				<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="plat.note">
+				<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="plat.commentaires">
+			</div>
+			<div class="pull-right">
+				<button type="submit" class="btn btn-default" ng-click="update(plat)">Update</button>
+				<button type="submit" class="btn btn-danger" ng-click="delete(plat)">Delete</button>
+			</div>
+		</form>
+	</li>
+</ul>
