@@ -2,7 +2,7 @@ function config($routeProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'views/main.html',
-			
+			controller: 'mainController'
 		})
         .when('/plats', {
 			templateUrl: 'views/plats.html',
@@ -28,6 +28,7 @@ function run($rootScope, $location){
 
 angular.module('app', ['ngRoute'])
     .config(config)
+    .controller('mainController', mainController)
     .controller('platsController', platsController)
     .controller('invitesController', invitesController)
     .service('platsService', platsService)

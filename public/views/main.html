@@ -1,5 +1,20 @@
-<div id="agenda">
-<h1>L'agenda des évenements</h1>
+<body>
 
-<iframe src="https://calendar.google.com/calendar/embed?src=10uqv2ennhpbug3ggd7t0ffkkk%40group.calendar.google.com&ctz=Europe/Paris" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-</div>
+
+    <div id="agenda">
+        <h1>L'agenda des évenements</h1>
+
+        <iframe src="https://calendar.google.com/calendar/embed?src=10uqv2ennhpbug3ggd7t0ffkkk%40group.calendar.google.com&ctz=Europe/Paris" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <select class="form-control">
+        <option value="{{invite._id}}" ng-repeat='invite in invites'>{{invite.description}}</option>
+    </select>
+    <select class="form-control">
+        <option value="{{plat._id}}" ng-repeat='plat in plats'>
+            {{plat.description}}</option>
+    </select>
+
+
+</body>
+
+
