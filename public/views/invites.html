@@ -1,4 +1,14 @@
 <h1>Les invites</h1>
+
+<div class="searchinginvites">
+	<input type="text" ng-model="query"/>
+	{{query}}
+	<select ng-model="order">
+		<option value="description">Organiser par nom</option>
+	</select>
+</div>
+
+
 <form class="form-inline">
 	<div class="form-group">
 		<input type="text" class="form-control" id="inputMessage" 
@@ -14,7 +24,7 @@
 </form>
 <hr>
 <ul class="list-group">
-	<li class="list-group-item" ng-repeat="invite in invites">
+	<li class="list-group-item" ng-repeat="invite in invites | filter:{description: query} | orderBy:order">
 		<form class="form-inline">
 			<div class="form-group">
 				<input type="text" class="form-control" id="inputMessage" 
