@@ -1,32 +1,61 @@
-<h1>Les plats</h1>
-<form class="form-inline">
-	<div class="form-group">
-		<input type="text" class="form-control" id="inputMessage" 
-			   placeholder="Votre plat" ng-model="description">
-        <input type="text" class="form-control" id="inputMessage" 
-			   placeholder="note" ng-model="note">
-        <input type="text" class="form-control" id="inputMessage" 
-			   placeholder="commentaires" ng-model="commentaires">
-       
-	</div>
-	<button type="submit" class="btn btn-default" ng-click="add()">Add</button>
-</form>
-<hr>
+<div class="header">
+    <h1>Les plats</h1>
+</div>
+
+
+
+
+
+
+<div class="big">
+    <form class="platAdd form">
+        <h2>Ajouter un plat</h2>
+        <div class="form-group container">
+            <div class="row">
+                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description" required>
+                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Ingrédients" ng-model="note" required>
+                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Recette" ng-model="commentaires" required>
+                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date" required>
+            </div>
+            <div class="imgForm row">
+                <form class="">
+                    <input type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
+                </form>
+
+                <img id="preview" class="imgAdd">
+                <button type="submit" class="btn btn-default" ng-click="add()">Add</button>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<div class="searchingplats">
+    <input type="text" ng-model="query"/>
+    {{query}}
+    <select ng-model="order">
+        <option value="description">Organiser par nom</option>
+        <option value="note">Organiser par note</option>
+    </select>
+</div>
+
+<br>
+<br>
 <ul class="list-group">
-	<li class="list-group-item" ng-repeat="plat in plats">
-		<form class="form-inline">
-			<div class="form-group">
-				<input type="text" class="form-control" id="inputMessage" 
-					   ng-model="plat.description">
-				<input type="text" class="form-control" id="inputMessage" 
-					   ng-model="plat.note">
-				<input type="text" class="form-control" id="inputMessage" 
-					   ng-model="plat.commentaires">
-			</div>
-			<div class="pull-right">
-				<button type="submit" class="btn btn-default" ng-click="update(plat)">Update</button>
-				<button type="submit" class="btn btn-danger" ng-click="delete(plat)">Delete</button>
-			</div>
-		</form>
-	</li>
+    <li class="list-group-item" ng-repeat="plat in plats | filter:{description: query} | orderBy:order">
+        <form class="form-inline">
+            <div class="form-group secondForm">
+                <img class="imgAdd" src="{{plat.image || 'http://www.justcurious.co.za/wp-content/uploads/2013/03/restaurant-icon-283a3eceacfd466c9081cc365869b986.gif'}}" />
+                <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.description">
+                <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.note">
+                <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.commentaires">
+                <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.date">
+                <span class="upDel">
+                <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
+                <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>
+            </span>
+            </div>
+        </form>
+    </li>
 </ul>
