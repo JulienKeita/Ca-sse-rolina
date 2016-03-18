@@ -1,0 +1,32 @@
+<h1>Les soirées</h1>
+<form class="form-inline">
+  <div class="form-group">
+    <input type="text" class="form-control" id="inputMessage" 
+    placeholder="Votre soirée" ng-model="description">
+    <input type="text" class="form-control" id="inputMessage" 
+    placeholder="plat" ng-model="plat">
+    <input type="text" class="form-control" id="inputMessage" 
+    placeholder="date" ng-model="date">
+
+  </div>
+  <button type="submit" class="btn btn-default" ng-click="add()">Add</button>
+</form>
+<hr>
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="soiree in soirees">
+    <form class="form-inline">
+      <div class="form-group">
+        <input type="text" class="form-control" id="inputMessage" 
+        ng-model="soiree.description">
+        <input type="text" class="form-control" id="inputMessage" 
+        ng-model="soiree.plat">
+        <input type="text" class="form-control" id="inputMessage" 
+        ng-model="soiree.date">
+      </div>
+      <div class="pull-right">
+        <button type="submit" class="btn btn-default" ng-click="update(soiree)">Update</button>
+        <button type="submit" class="btn btn-danger" ng-click="delete(soiree)">Delete</button>
+      </div>
+    </form>
+  </li>
+</ul>

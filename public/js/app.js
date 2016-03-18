@@ -6,11 +6,15 @@ function config($routeProvider) {
 		})
         .when('/plats', {
 			templateUrl: 'views/plats.html',
-        controller: 'platsController'
+        	controller: 'platsController'
 		})
 		.when('/invites', {
 			templateUrl: 'views/invites.html',
             controller: 'invitesController'
+		})
+		.when('/soirees', {
+			templateUrl: 'views/soirees.html',
+            controller: 'soireesController'
 		})
         .when('/about', {
 			templateUrl: 'views/about.html',
@@ -30,8 +34,10 @@ angular.module('app', ['ngRoute'])
     .config(config)
     .controller('platsController', platsController)
     .controller('invitesController', invitesController)
+    .controller('soireesController', soireesController)
     .service('platsService', platsService)
     .service('invitesService', invitesService)
+    .service('soireesService', soireesService)
     /*.factory('', )*/
     .run(run);
 
