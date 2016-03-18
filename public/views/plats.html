@@ -6,9 +6,10 @@
         <h2>Ajouter un plat</h2>
         <div class="form-group container">
             <div class="row">
-                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description">
-                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Ingrédients" ng-model="note">
-                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Recette" ng-model="commentaires">
+                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description" required>
+                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Ingrédients" ng-model="note" required>
+                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Recette" ng-model="commentaires" required>
+                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date" required>
             </div>
             <div class="imgForm row">
                 <form class="">
@@ -28,11 +29,12 @@
 <ul class="list-group">
     <li class="list-group-item" ng-repeat="plat in plats">
         <form class="form-inline">
-            <div class="form-group">
+            <div class="form-group secondForm">
                 <img class="imgAdd" src="{{plat.image || 'http://www.justcurious.co.za/wp-content/uploads/2013/03/restaurant-icon-283a3eceacfd466c9081cc365869b986.gif'}}" />
                 <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.description">
                 <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.note">
                 <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.commentaires">
+                <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.date">
                 <span class="upDel">
                 <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
                 <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>

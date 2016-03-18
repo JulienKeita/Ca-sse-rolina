@@ -1,29 +1,33 @@
 function config($routeProvider) {
-	$routeProvider
-		.when('/', {
-			templateUrl: 'views/main.html',
-			
-		})
+    $routeProvider
+        .when('/', {
+            templateUrl: 'views/main.html',
+
+        })
         .when('/plats', {
-			templateUrl: 'views/plats.html',
-        controller: 'platsController'
-		})
-		.when('/invites', {
-			templateUrl: 'views/invites.html',
+            templateUrl: 'views/plats.html',
+            controller: 'platsController'
+        })
+        .when('/invites', {
+            templateUrl: 'views/invites.html',
             controller: 'invitesController'
-		})
+        })
         .when('/about', {
-			templateUrl: 'views/about.html',
-		})
-		.otherwise({
-			redirectTo: '/'
-		});
+            templateUrl: 'views/about.html',
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
 }
-function run($rootScope, $location){
-	var path = function() { return $location.path(); };
-	$rootScope.$watch(path, function(newVal, oldVal){
-		$rootScope.activetab = newVal;
-	});
+
+
+function run($rootScope, $location) {
+    var path = function () {
+        return $location.path();
+    };
+    $rootScope.$watch(path, function (newVal, oldVal) {
+        $rootScope.activetab = newVal;
+    });
 }
 
 angular.module('app', ['ngRoute'])
@@ -34,4 +38,3 @@ angular.module('app', ['ngRoute'])
     .service('invitesService', invitesService)
     /*.factory('', )*/
     .run(run);
-

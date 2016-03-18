@@ -12,6 +12,7 @@ function platsController($scope, $http, platsService) {
         data.description = $scope.description;
         data.note = $scope.note;
         data.commentaires = $scope.commentaires;
+        data.date = $scope.date;
         data.image = $scope.imageFile;
         platsService.create(data).then(function (res) {
             load();
@@ -19,6 +20,7 @@ function platsController($scope, $http, platsService) {
         $scope.description = "";
         $scope.note = "";
         $scope.commentaires = "";
+        $scope.date = "";
         $scope.imageFile = "";
         location.reload();
     }

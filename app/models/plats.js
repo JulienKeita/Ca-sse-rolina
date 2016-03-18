@@ -2,10 +2,12 @@
 var mongoose = require('mongoose');
 
 
+
 var platsSchema = new mongoose.Schema({
     description: String,
     note: String,
     commentaires: String,
+    date: String,
     image: String
 });
 
@@ -18,6 +20,7 @@ var Plats = {
             description: req.body.description,
             note: req.body.note,
             commentaires: req.body.commentaires,
+            date: req.body.date,
             image: req.body.image
         }, function () {
             res.sendStatus(200);
@@ -35,6 +38,7 @@ var Plats = {
             description: req.body.description,
             note: req.body.note,
             commentaires: req.body.commentaires,
+            date: req.body.date,
             image: req.body.image
         }, function () {
             res.sendStatus(200);
@@ -47,5 +51,7 @@ var Plats = {
         })
     }
 }
+
+
 
 module.exports = Plats;
