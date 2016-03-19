@@ -5,19 +5,18 @@
     <form class="platAdd form">
         <h2>Ajouter un plat</h2>
         <div class="form-group container">
-            <div class="row">
-                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description" required>
-                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Ingrédients" ng-model="note" required>
-                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Recette" ng-model="commentaires" required>
-                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date" required>
+            <div class="row back">
+                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description">
+
+                <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date">
             </div>
             <div class="imgForm row">
                 <form class="">
                     <input type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
                 </form>
 
-                <img id="preview" class="imgAdd">
-                <button type="submit" class="btn btn-default" ng-click="add()">Add</button>
+                <img id="preview">
+                <button type="submit" class="btn btn-default" ng-click="add()">Ajouter</button>
 
             </div>
         </div>
@@ -26,20 +25,59 @@
 </div>
 <br>
 <br>
+<div class="plat-field">
+    <h2> Chercher un plat</h2>
+    <div class="searchingplats">
+        <input class="searchInput" type="text" ng-model="query" placeholder="Entrer nom de plat" />
+        <select ng-model="order">
+            <option value="" disabled selected hidden>Trier par</option>
+            <option value="description">Organiser par nom</option>
+            <option value="note">Organiser par note</option>
+        </select>
+    </div>
+</div>
+
 <ul class="list-group">
-    <li class="list-group-item" ng-repeat="plat in plats">
-        <form class="form-inline">
-            <div class="form-group secondForm">
-                <img class="imgAdd" src="{{plat.image || 'http://www.justcurious.co.za/wp-content/uploads/2013/03/restaurant-icon-283a3eceacfd466c9081cc365869b986.gif'}}" />
-                <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.description">
-                <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.note">
-                <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.commentaires">
-                <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.date">
-                <span class="upDel">
-                <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
-                <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>
+    <li class="list-group-item" ng-repeat="plat in plats | filter:{description: query} | orderBy:order">
+        <form class=" form-inline ">
+            <div class="form-group secondForm ">
+                <div><img class="imgAdd" src="{{plat.image || 'http://www.justcurious.co.za/wp-content/uploads/2013/03/restaurant-icon-283a3eceacfd466c9081cc365869b986.gif'}}" style="float:left;" /></div>
+                <div class="listInput">
+                    <input type="text " class="form-control secondPart " id="inputMessage " ng-model="plat.description ">
+                    <input type="text " class="form-control secondPart " id="inputMessage " ng-model="plat.date ">
+                    <input type="text " class="form-control secondPart " id="inputMessage " ng-model="plat.note ">
+                    <input type="text " class="form-control secondPart " id="inputMessage " ng-model="plat.commentaires ">
+                </div>
+
+                <span class="upDel ">
+                <button type="submit " class="btn btn-default " ng-click="update(plat) ">Mettre à jour</button>
+                <button type="submit " class="btn btn-danger " ng-click="delete(plat) ">X</button>
             </span>
             </div>
         </form>
     </li>
 </ul>
+
+<div class="container">
+    <h2>Large Modal</h2>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Large Modal</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This is a large modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

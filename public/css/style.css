@@ -18,7 +18,6 @@ body {
 .nav > li > a {
     transition: 0.4s;
     color: black;
-    font-weight: bold;
     font-family: 'lobster';
 }
 
@@ -26,6 +25,10 @@ body {
 .nav > li > a:hover {
     color: white;
     background-color: black;
+}
+
+a:active {
+    outline: 0;
 }
 
 .container {
@@ -40,11 +43,29 @@ body {
     width: 120px;
     height: 87px;
     box-shadow: 1px 1px 3px black;
+    transition: 0.5s;
+}
+
+.imgAdd:hover {
+    transform: scale(1.5);
+    z-index: 999;
+}
+
+.listInput {
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.upDel {
+    float: right;
+    padding-right: 10px;
+    padding-top: 10px;
 }
 
 #preview {
     width: 120px;
     height: 87px;
+    box-shadow: 1px 1px 3px black;
 }
 
 .header {
@@ -82,7 +103,7 @@ h1 {
 }
 
 .imgForm {
-    margin-top: 20px;
+    margin-top: 50px;
     margin-left: 50%;
     transform: translateX(-30%);
 }
@@ -106,6 +127,28 @@ input[type="file"] {
     border: none;
     border-bottom: 1px black solid;
     border-radius: 0px;
+}
+
+.plat-field {
+    margin-top: -20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.plat-field > h2 {
+    margin-bottom: 10px;
+}
+
+.searchInput {
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.button,
+input,
+select,
+textarea {
+    border-radius: 4px;
 }
 
 .list-group-item {
@@ -133,6 +176,14 @@ input[type="file"] {
     box-shadow: 1px 1px 3px black;
 }
 
+.secondPart {
+    text-align: center;
+}
+
+input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.ng-touched {
+    box-shadow: none;
+}
+
 .form-control {
     border-radius: 0px;
 }
@@ -142,4 +193,11 @@ input[type="file"] {
     border: none;
     text-shadow: 1px 1px 1px black;
     box-shadow: 1px 1px 2px black;
+}
+
+.testForm {
+    text-align: center;
+    background-color: rgba(0, 0, 255, 0.2);
+    padding: O;
+    margin: O;
 }
