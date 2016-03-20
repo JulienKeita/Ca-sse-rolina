@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'lobster';
-    src: url('font/Lobster_1.4.otf');
-}
-
 body {
     /*margin: 0 auto;
     padding: 0 auto;*/
@@ -13,12 +8,12 @@ body {
 .navbar {
     height: 10%;
     box-shadow: 1px 0px 2px white;
+    border-radius: 0px;
 }
 
 .nav > li > a {
     transition: 0.4s;
     color: black;
-    font-family: 'lobster';
 }
 
 .nav > li > a:focus,
@@ -40,20 +35,19 @@ a:active {
 }
 
 .imgAdd {
-    width: 120px;
-    height: 87px;
-    box-shadow: 1px 1px 3px black;
+    margin-top: -10px;
+    margin-left: -10px;
+    width: 250px;
+    height: 130px;
+    background-size: cover;
+    border-radius: 6px 6px 0px 0px;
     transition: 0.5s;
 }
 
-.imgAdd:hover {
-    transform: scale(1.5);
-    z-index: 999;
-}
+.imgAdd:hover {}
 
 .listInput {
     display: inline-block;
-    padding-top: 10px;
 }
 
 .upDel {
@@ -63,8 +57,8 @@ a:active {
 }
 
 #preview {
-    width: 120px;
-    height: 87px;
+    width: 150px;
+    height: 117px;
     box-shadow: 1px 1px 3px black;
 }
 
@@ -77,17 +71,42 @@ a:active {
 }
 
 h1 {
-    font-family: 'lobster';
+    font-family: 'Lobster', cursive;
     width: 100%;
     color: white;
-    padding-top: 100px;
-    font-size: 4em;
-    text-shadow: 0px 0px 30px grey;
+    padding-top: 66px;
+    font-size: 10em;
+    text-shadow: 0px 0px 20px pink;
 }
 
 .big {
     box-shadow: 1px 0px 3px black;
     background-color: white;
+    text-align: center;
+    padding-bottom: 20px;
+    font-style: italic;
+    height: 109px;
+}
+
+.modal-content {
+    background-color: white;
+}
+
+.parcourir {
+    background-color: white;
+    color: black;
+    border-radius: 0px;
+}
+
+.modal-add-btn {
+    border-radius: 0px;
+    padding: 5px;
+    width: 200px;
+    background-color: black;
+    border: 1px black solid;
+    text-shadow: 0px 0px 1px black;
+    transition: 0.2s;
+    box-shadow: 1px 1px 3px grey;
 }
 
 .platAdd {
@@ -100,6 +119,16 @@ h1 {
 
 .platAdd > h2 {
     text-align: center;
+}
+
+.modal-header {
+    border-bottom: 1px white solid;
+    background-color: white;
+    text-align: center;
+}
+
+.modal-footer {
+    border-top: 1px white solid;
 }
 
 .imgForm {
@@ -127,21 +156,25 @@ input[type="file"] {
     border: none;
     border-bottom: 1px black solid;
     border-radius: 0px;
+    background-color: white;
 }
 
-.plat-field {
-    margin-top: -20px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.plat-field > h2 {
-    margin-bottom: 10px;
+.addPlatField {
+    border-right: 1px solid black;
+    padding-right: 10px;
+    padding-bottom: 20px;
 }
 
 .searchInput {
     border-radius: 0px;
     box-shadow: none;
+    color: dimgrey;
+    margin-top: -10px;
+    width: 180px;
+}
+
+.orderBy {
+    width: 180px;
 }
 
 .button,
@@ -151,37 +184,74 @@ textarea {
     border-radius: 4px;
 }
 
-.list-group-item {
-    border: none;
+.list-group {
     text-align: center;
+}
+
+.plat-field {
+    border-right: none;
+    padding-right: 0px;
+}
+
+.list-group-item {
+    width: 300px;
+    border: none;
     background-color: lightgoldenrodyellow;
+    display: inline-block;
+    margin-top: -6px;
+    padding-top: -10px;
+}
+
+.form-group {
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.form-group:hover {
+    box-shadow: 0px 0px 20px grey;
 }
 
 .btn-default {
-    background-color: darkgreen;
+    background-color: white;
     border: none;
-    padding: 0px 4px 0px 4px;
-    color: white;
-    text-shadow: 1px 1px 1px black;
-    box-shadow: 1px 1px 2px black;
+    padding: 5px;
+    color: black;
+    min-width: 59px;
 }
 
 .btn-default:hover {
     color: white;
-    background-color: lightgreen;
+    background-color: #31b0d5;
 }
 
 .secondForm {
-    padding-right: 5px;
-    box-shadow: 1px 1px 3px black;
+    box-shadow: 1px 1px 4px black;
+    width: 250px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .secondPart {
-    text-align: center;
+    text-align: right;
+    background-color: rgba(0, 0, 0, 0.0);
+    color: white;
+    border: none;
+    border-bottom: 1px white solid;
+    padding-right: 3px;
 }
 
 input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.ng-touched {
     box-shadow: none;
+}
+
+.firstChild {
+    text-align: center;
+    border: none;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-shadow: 0px 0px 3px pink;
 }
 
 .form-control {
@@ -189,7 +259,7 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
 }
 
 .btn-danger {
-    padding: 0px 4px 0px 4px;
+    padding: 5px 10px 5px 10px;
     border: none;
     text-shadow: 1px 1px 1px black;
     box-shadow: 1px 1px 2px black;
