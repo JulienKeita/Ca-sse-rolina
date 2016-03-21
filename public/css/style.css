@@ -221,6 +221,10 @@ textarea {
     min-width: 59px;
 }
 
+.recetteButton {
+    background-color: palegreen;
+}
+
 .btn-default:hover {
     color: white;
     background-color: #31b0d5;
