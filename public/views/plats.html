@@ -1,32 +1,110 @@
-<h1>Les plats</h1>
-<form class="form-inline">
-	<div class="form-group">
-		<input type="text" class="form-control" id="inputMessage" 
-			   placeholder="Votre plat" ng-model="description">
-        <input type="text" class="form-control" id="inputMessage" 
-			   placeholder="note" ng-model="note">
-        <input type="text" class="form-control" id="inputMessage" 
-			   placeholder="commentaires" ng-model="commentaires">
-       
-	</div>
-	<button type="submit" class="btn btn-default" ng-click="add()">Add</button>
-</form>
-<hr>
+<div class="header">
+    <h1><strong>L</strong>es <strong>P</strong>lats</h1>
+</div>
+<div class="container big">
+    <div class="row" style="text-align:center;">
+        <div class="addPlatField col-md-6">
+            <h2>Ajouter un plat</h2>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#myModal">Ajouter</button>
+        </div>
+
+        <div class="plat-field col-md-6">
+            <h2> Chercher un plat</h2>
+            <div class=" searchingplats">
+                <input class="searchInput" type="text" ng-model="query" placeholder="Entrer nom de plat" />
+                <select ng-model="order" class="orderBy" style="color:black;">
+                    <option value="" disabled selected hidden>Trier par</option>
+                    <option value="description">Organiser par nom</option>
+                    <option value="note">Organiser par note</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<!-- <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ajouter un plat</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description">
+
+                    <input type="text" class="control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date">
+                </div>
+                <div style="text-align:center;">
+                    <form>
+                        <input class="parcourir" type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
+                    </form>
+
+                    <img id="preview" style="margin-top:30px;">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default" ng-click="add()" style="float:right;">Ajouter</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<br>
+<br>
+
+
 <ul class="list-group">
-	<li class="list-group-item" ng-repeat="plat in plats">
-		<form class="form-inline">
-			<div class="form-group">
-				<input type="text" class="form-control" id="inputMessage" 
-					   ng-model="plat.description">
-				<input type="text" class="form-control" id="inputMessage" 
-					   ng-model="plat.note">
-				<input type="text" class="form-control" id="inputMessage" 
-					   ng-model="plat.commentaires">
-			</div>
-			<div class="pull-right">
-				<button type="submit" class="btn btn-default" ng-click="update(plat)">Update</button>
-				<button type="submit" class="btn btn-danger" ng-click="delete(plat)">Delete</button>
-			</div>
-		</form>
-	</li>
+
+    <li class="list-group-item" ng-repeat="plat in plats | filter:{description: query} | orderBy:order">
+        <form class=" form-inline">
+            <div class="form-group secondForm">
+                <img class="imgAdd" src="{{plat.image || 'http://www.justcurious.co.za/wp-content/uploads/2013/03/restaurant-icon-283a3eceacfd466c9081cc365869b986.gif'}}" />
+                <div class="listInput">
+                    <input type="text" class="form-control secondPart firstChild" id="inputMessage" ng-model="plat.description">
+                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.date">
+                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.note">
+                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.commentaires">
+                </div>
+
+                <span class="upDel">
+                <button type="submit" class="btn btn-default recetteButton" ng-click="update(plat)">Recette</button>
+                <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
+                <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>
+                </span>
+            </div>
+        </form>
+    </li>
 </ul>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ajouter un plat</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description">
+
+                    <input type="text" class="control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date">
+                </div>
+                <div style="text-align:center;">
+                    <form>
+                        <input class="parcourir" type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
+                    </form>
+
+                    <img id="preview" style="margin-top:30px;">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default" ng-click="add()" style="float:right;">Ajouter</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+            </div>
+        </div>
+    </div>
+</div>
