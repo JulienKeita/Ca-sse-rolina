@@ -12,10 +12,6 @@ function config($routeProvider) {
             templateUrl: 'views/invites.html',
             controller: 'invitesController'
         })
-        .when('/soirees', {
-            templateUrl: 'views/soirees.html',
-            controller: 'soireesController'
-        })
         .when('/about', {
             templateUrl: 'views/about.html',
         })
@@ -38,9 +34,7 @@ angular.module('app', ['ngRoute'])
     .config(config)
     .controller('platsController', platsController)
     .controller('invitesController', invitesController)
-    .controller('soireesController', invitesController)
     .service('platsService', platsService)
     .service('invitesService', invitesService)
-    .service('soireesService', invitesService)
     /*.factory('', )*/
     .run(run);
