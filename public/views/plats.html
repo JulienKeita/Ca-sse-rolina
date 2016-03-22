@@ -91,12 +91,12 @@
                     <ul class="ingList">
                         <li>
 
-                            <div ng-app="app" ng-controller="plats-Controller">
-                                <input type="text" class="form-control" name="AddressLine1" placeholder="Address Line" ng-model="order.joAddressLine1" required />
-                                <input type="text" class="form-control" name="AddressLine2" placeholder="Address Line" ng-model="order.joAddressLine2" ng-show="order.joAddressLine2 || show2" />
-                                <input type="text" class="form-control" name="AddressLine3" placeholder="Address Line" ng-model="order.joAddressLine3" ng-show="order.joAddressLine3 || show3" />
-                                <input type="text" class="form-control" name="AddressLine4" placeholder="Address Line" ng-model="order.joAddressLine4" ng-show="order.joAddressLine4 || show4" />
-                                <button ng-click="add+()">+</button>
+                            <div>
+                                <input type="text" class="form-control" name="ingredient1" placeholder="ingrédient n°1" ng-model="order.ingredient1" required />
+                                <input type="text" class="form-control" name="ingredient2" placeholder="ingrédient n°2" ng-model="order.ingredient2" ng-show="order.ingredient2 || show2" />
+                                <input type="text" class="form-control" name="ingredient3" placeholder="ingrédient n°3" ng-model="order.ingredient3" ng-show="order.ingredient3 || show3" />
+                                <input type="text" class="form-control" name="ingredient4" placeholder="ingrédient n°4" ng-model="order.ingredient4" ng-show="order.ingredient4 || show4" />
+                                <button ng-click="add()">Ajouter ingrédient</button>
                             </div>
 
                             <input type="text" class="form-control secondPart thirdPart" id="inputMessage" ng-model="plat.ingredient1" placeholder="Ingrédient n°1">
