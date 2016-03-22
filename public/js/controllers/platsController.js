@@ -50,3 +50,11 @@ function platsController($scope, $http, platsService) {
     }
     load();
 }
+
+/* 
+
+créer variable "selectedPlat" 
+
+$scope selectedPlat = 
+
+{{}}*/

@@ -23,62 +23,6 @@
     </div>
 </div>
 <!-- Modal -->
-<!-- <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Ajouter un plat</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description">
-
-                    <input type="text" class="control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date">
-                </div>
-                <div style="text-align:center;">
-                    <form>
-                        <input class="parcourir" type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
-                    </form>
-
-                    <img id="preview" style="margin-top:30px;">
-
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-default" ng-click="add()" style="float:right;">Ajouter</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-            </div>
-        </div>
-    </div>
-</div> -->
-<br>
-<br>
-
-
-<ul class="list-group">
-
-    <li class="list-group-item" ng-repeat="plat in plats | filter:{description: query} | orderBy:order">
-        <form class=" form-inline">
-            <div class="form-group secondForm">
-                <img class="imgAdd" src="{{plat.image || 'http://www.justcurious.co.za/wp-content/uploads/2013/03/restaurant-icon-283a3eceacfd466c9081cc365869b986.gif'}}" />
-                <div class="listInput">
-                    <input type="text" class="form-control secondPart firstChild" id="inputMessage" ng-model="plat.description">
-                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.date">
-                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.note">
-                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.commentaires">
-                </div>
-
-                <span class="upDel">
-                <button type="submit" class="btn btn-default recetteButton" ng-click="update(plat)">Recette</button>
-                <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
-                <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>
-                </span>
-            </div>
-        </form>
-    </li>
-</ul>
-
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -108,3 +52,65 @@
         </div>
     </div>
 </div>
+
+<br>
+<br>
+
+
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="plat in plats | filter:{description: query} | orderBy:order">
+        <form class=" form-inline">
+            <div class="form-group secondForm">
+                <img class="imgAdd" src="{{plat.image || 'http://www.justcurious.co.za/wp-content/uploads/2013/03/restaurant-icon-283a3eceacfd466c9081cc365869b986.gif'}}" />
+                <div class="listInput">
+                    <input type="text" class="form-control secondPart firstChild" id="inputMessage" ng-model="plat.description">
+                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.date">
+                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.note">
+                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.commentaires">
+                </div>
+
+                <span class="upDel">
+                <button type="submit" class="btn btn-default recetteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#myModal2">Recette</button>
+                <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
+                <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>
+                </span>
+            </div>
+        </form>
+    </li>
+</ul>
+
+<!--<div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="text-align:center; padding:30px;">
+            <div class="modal-header">
+                <h2 class="modal-title2">Recette</h2>
+            </div>
+            <div class="modal-body">
+                <div class="row subPart">
+                    <h3>Ingrédients</h3>
+                    <ul>
+                        <li>Ingrédient</li>
+                        <li>Ingrédient</li>
+                        <li>Ingrédient</li>
+                        <li>Ingrédient</li>
+                        <li>Ingrédient</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="row subPart">
+                    <h3>Préparation</h3>
+                    <p>Ce qu'il faut faire</p>
+                </div>
+                <hr>
+                <div class="row subPart">
+                    <h3>Commentaires</h3>
+                    <p></p>
+                </div>
+            </div>
+            <div class="modal-footer2" style="text-align:right;">
+                <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
+                <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>
+            </div>
+        </div>
+    </div>
+</div>-->

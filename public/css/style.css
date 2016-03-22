@@ -219,6 +219,7 @@ textarea {
     padding: 5px;
     color: black;
     min-width: 59px;
+    transition: 0.2s;
 }
 
 .recetteButton {
@@ -231,10 +232,10 @@ textarea {
 }
 
 .secondForm {
-    box-shadow: 1px 1px 4px black;
+    box-shadow: 0px 0px 4px black;
     width: 250px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .secondPart {
@@ -267,11 +268,19 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
     border: none;
     text-shadow: 1px 1px 1px black;
     box-shadow: 1px 1px 2px black;
+    transition: 0.2s;
 }
 
-.testForm {
-    text-align: center;
-    background-color: rgba(0, 0, 255, 0.2);
-    padding: O;
-    margin: O;
+.recette-header {
+    height: 250px;
+}
+
+.modal-title2 {
+    font-size: 3em;
+    padding-top: -10px;
+    padding: 60px;
+}
+
+.subPart {
+    margin-top: 50px;
 }
