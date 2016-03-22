@@ -58,17 +58,17 @@ function platsController($scope, $http, platsService) {
     load();
 }
 
-function ($scope) {
+/*function ($scope) {
     $scope.order = {
         joAddressLine1: 'sample'
     };
 
-    $scope.add = function () {
+    $scope.add+ = function () {
         $scope.show2 = true;
         $scope.show3 = $scope.order.joAddressLine2;
         $scope.show4 = $scope.order.joAddressLine3;
     }
-});
+});*/
 
 
 
