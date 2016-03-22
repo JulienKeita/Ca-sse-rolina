@@ -23,7 +23,7 @@
     </div>
 </div>
 <!-- Modal -->
-<!-- <div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -51,26 +51,26 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
+
 <br>
 <br>
 
 
 <ul class="list-group">
-
     <li class="list-group-item" ng-repeat="plat in plats | filter:{description: query} | orderBy:order">
         <form class=" form-inline">
             <div class="form-group secondForm">
                 <img class="imgAdd" src="{{plat.image || 'http://www.justcurious.co.za/wp-content/uploads/2013/03/restaurant-icon-283a3eceacfd466c9081cc365869b986.gif'}}" />
                 <div class="listInput">
-                    <input type="text" class="form-control secondPart firstChild" id="inputMessage" ng-model="plat.description">
-                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.date">
-                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.note">
-                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.commentaires">
+                    <input type="text" class="form-control secondPart firstChild" id="inputMessage" ng-model="plat.description" placeholder="Nom du plat">
+                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.date" placeholder="Date dernier repas">
+                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.note" placeholder="Note du plat">
+                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.commentaires" placeholder="Commentaire sur le plat">
                 </div>
 
                 <span class="upDel">
-                <button type="submit" class="btn btn-default recetteButton" ng-click="update(plat)">Recette</button>
+                <button type="submit" class="btn btn-default recetteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#myModal2">Recette</button>
                 <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
                 <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>
                 </span>
@@ -79,31 +79,48 @@
     </li>
 </ul>
 
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Ajouter un plat</h4>
+<div class="modal fade" ng-repeat="plat in plats | filter:{description: query} | orderBy:order" id="myModal2" role="dialog">
+    <div class="modal-dialog modal-lg hmm">
+        <div class="modal-content2" style="text-align:center;">
+            <div class="modal-header2" ng-style="{'background-image':'url({{plat.image}})'}">
+                <h2 class="modal-title2 ">{{plat.description}}</h2>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description">
+            <div class="modal-body ">
+                <div class="row subPart ">
+                    <h3>Ingrédients</h3>
+                    <ul class="ingList">
+                        <li>
 
-                    <input type="text" class="control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date">
+                            <div ng-app="app" ng-controller="plats-Controller">
+                                <input type="text" class="form-control" name="AddressLine1" placeholder="Address Line" ng-model="order.joAddressLine1" required />
+                                <input type="text" class="form-control" name="AddressLine2" placeholder="Address Line" ng-model="order.joAddressLine2" ng-show="order.joAddressLine2 || show2" />
+                                <input type="text" class="form-control" name="AddressLine3" placeholder="Address Line" ng-model="order.joAddressLine3" ng-show="order.joAddressLine3 || show3" />
+                                <input type="text" class="form-control" name="AddressLine4" placeholder="Address Line" ng-model="order.joAddressLine4" ng-show="order.joAddressLine4 || show4" />
+                                <button ng-click="add+()">+</button>
+                            </div>
+
+                            <input type="text" class="form-control secondPart thirdPart" id="inputMessage" ng-model="plat.ingredient1" placeholder="Ingrédient n°1">
+
+                            <button type="submit" class="btn btn-default" ng-click="update(plat) showme=true">Mettre à jour</button>
+
+                            <input type="text" ng-show="showme" class="form-control secondPart thirdPart" id="inputMessage" ng-model="plat.ingredient2" placeholder="Ingrédient n°2">
+                        </li>
+                    </ul>
                 </div>
-                <div style="text-align:center;">
-                    <form>
-                        <input class="parcourir" type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
-                    </form>
-
-                    <img id="preview" style="margin-top:30px;">
-
+                <hr>
+                <div class="row subPart ">
+                    <h3>Préparation</h3>
+                    <p>Ce qu'il faut faire</p>
+                </div>
+                <hr>
+                <div class="row subPart ">
+                    <h3>Commentaires</h3>
+                    <p></p>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-default" ng-click="add()" style="float:right;">Ajouter</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+            <div class="modal-footer2 " style="text-align:right; ">
+                <button type="submit " class="btn btn-default " ng-click="update(plat) ">Mettre à jour</button>
+                <button type="submit " class="btn btn-danger " ng-click="delete(plat) ">X</button>
             </div>
         </div>
     </div>

@@ -6,13 +6,18 @@ function platsController($scope, $http, platsService) {
         platsService.get().then(function (res) {
             $scope.plats = res.data;
         });
+
     }
+
+
+
     $scope.add = function () {
         var data = {};
         data.description = $scope.description;
         data.note = $scope.note;
         data.commentaires = $scope.commentaires;
         data.date = $scope.date;
+        data.ingredient1 = $scope.ingredient1;
         data.image = $scope.imageFile;
         platsService.create(data).then(function (res) {
             load();
@@ -21,12 +26,13 @@ function platsController($scope, $http, platsService) {
         $scope.note = "";
         $scope.commentaires = "";
         $scope.date = "";
+        $scope.ingredient1 = "";
         $scope.imageFile = "";
         location.reload();
     }
     $scope.update = function (plats) {
         platsService.update(plats._id, plats).then(function (res) {
-            load();
+            /*load();*/
         });
     }
     $scope.delete = function (plats) {
@@ -48,5 +54,29 @@ function platsController($scope, $http, platsService) {
             preview.src = "";
         }
     }
+
     load();
 }
+
+/*function ($scope) {
+    $scope.order = {
+        joAddressLine1: 'sample'
+    };
+
+    $scope.add+ = function () {
+        $scope.show2 = true;
+        $scope.show3 = $scope.order.joAddressLine2;
+        $scope.show4 = $scope.order.joAddressLine3;
+    }
+});*/
+
+
+
+
+/* 
+
+créer variable "selectedPlat" 
+
+$scope selectedPlat = 
+
+{{}}*/
