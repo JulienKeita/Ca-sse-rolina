@@ -271,16 +271,39 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
     transition: 0.2s;
 }
 
-.recette-header {
+.hmm {
+    background-color: lightgoldenrodyellow;
+}
+
+.modal-header2 {
     height: 250px;
+    background-size: cover;
 }
 
 .modal-title2 {
     font-size: 3em;
     padding-top: -10px;
-    padding: 60px;
+    padding: 100px;
+    font-family: 'Lobster';
+    color: white;
+    text-shadow: 0px 0px 2px black;
 }
 
 .subPart {
     margin-top: 50px;
+}
+
+.subPart > h3 {
+    color: white;
+    text-shadow: 0px 0px 3px black;
+}
+
+.thirdPart {
+    color: black;
+}
+
+.ingList {
+    list-style-type: none;
+    display: inline;
+    width: 200px;
 }

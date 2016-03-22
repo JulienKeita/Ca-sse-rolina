@@ -8,6 +8,7 @@ var platsSchema = new mongoose.Schema({
     note: String,
     commentaires: String,
     date: String,
+    ingredient1: String,
     image: String
 });
 
@@ -21,6 +22,7 @@ var Plats = {
             note: req.body.note,
             commentaires: req.body.commentaires,
             date: req.body.date,
+            ingredient1: req.body.ingredient1,
             image: req.body.image
         }, function () {
             res.sendStatus(200);
@@ -39,6 +41,7 @@ var Plats = {
             note: req.body.note,
             commentaires: req.body.commentaires,
             date: req.body.date,
+            ingredient1: req.body.ingredient1,
             image: req.body.image
         }, function () {
             res.sendStatus(200);
