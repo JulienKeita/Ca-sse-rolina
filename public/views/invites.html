@@ -84,32 +84,32 @@
 <div class="modal fade" ng-repeat="invite in invites | filter:{description: query} | orderBy:order" id="{{invite._id}}" role="dialog">
     <div class="modal-dialog modal-lg hmm">
         <div class="modal-contentinvite" style="text-align:center;">
-            <div class="modal-headerinvite" ng-style="{'background-image':'url({{invite.image}})'}">
-                <h2 class="modal-titleinvite ">{{invite.description}}</h2>
+            <div class="modal-header2" ng-style="{'background-image':'url({{invite.image}})'}">
+                <h2 class="modal-title2 ">{{invite.description}}</h2>
             </div>
             <div class="modal-body ">
-                <ul class="ingList">
+                <ul class="ingList2">
                     <li>
-                        <!-- <div class="row subPart "> -->
+                        <div class="row subPart2 ">
                             <h3>Changer le nom</h3>
                            <!-- <div class="listInput"> -->
-                            <input type="text" class="form-control secondPart firstChild" id="inputMessage" ng-model="invite.description">
-                        <!-- </div> -->
+                            <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.description">
+                        </div>
 
-                        <!-- <div class="row subPart "> -->
+                        <div class="row subPart ">
                             <h3>Restrictions</h3>
-                            <input type="text" class="form-control secondPart" id="inputMessage" ng-model="invite.restrictions">
-                        <!-- </div> -->
+                            <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.restrictions">
+                        </div>
 
-                        <!-- <div class="row subPart "> -->
+                        <div class="row subPart ">
                             <h3>Commentaires</h3>
-                            <input type="text" class="form-control secondPart" id="inputMessage" ng-model="invite.commentaires">
-                        <!-- </div> -->
+                            <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.commentaires">
+                        </div>
 
-                        <!-- <div class="row subPart "> -->
+                        <div class="row subPart ">
                             <h3>date</h3>
-                             <input type="text" class="form-control secondPart" id="inputMessage" ng-model="invite.date">
-                        <!-- </div> -->
+                             <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.date">
+                        </div>
                     </li>
                 </ul>
             </div>

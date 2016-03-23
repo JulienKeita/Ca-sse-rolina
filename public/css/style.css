@@ -5,6 +5,8 @@ body {
     background-color: lightgoldenrodyellow;
 }
 
+
+
 .navbar {
     height: 10%;
     box-shadow: 1px 0px 2px white;
@@ -165,6 +167,12 @@ input[type="file"] {
     padding-bottom: 20px;
 }
 
+.addInviteField {
+    border-right: 1px solid black;
+    padding-right: 10px;
+    padding-bottom: 20px;
+}
+
 .searchInput {
     border-radius: 0px;
     box-shadow: none;
@@ -251,6 +259,13 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
     box-shadow: none;
 }
 
+input#inviteinputMessage .inviteform-control.ng-pristine.ng-valid.ng-not-empty.ng-touched {
+    box-shadow: none;
+    font-size: 1em;
+    font-color: dimgrey;
+    text-align: center;
+}
+
 .firstChild {
     text-align: center;
     border: none;
@@ -262,6 +277,14 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
 .form-control {
     border-radius: 0px;
 }
+
+.invite-form-control {
+    border-radius: 0px;
+    color: #555;
+}
+
+
+
 
 .btn-danger {
     padding: 5px 10px 5px 10px;
@@ -277,7 +300,9 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
 
 .modal-header2 {
     height: 250px;
-    background-size: cover;
+    background-size: 900px 600px;
+    background-position: center;
+    box-shadow: 0px 1px 3px black;
 }
 
 .modal-title2 {
@@ -290,7 +315,11 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
 }
 
 .subPart {
-    margin-top: 50px;
+    margin-top: 15px;
+}
+
+.subPart2 {
+    margin-top: 15px;
 }
 
 .subPart > h3 {
@@ -298,12 +327,48 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
     text-shadow: 0px 0px 3px black;
 }
 
+.subPart2 > h3 {
+    color: white;
+    text-shadow: 0px 0px 3px black;
+}
+
+.firstBlock {
+    margin-top: 30px;
+}
+
 .thirdPart {
     color: black;
 }
 
+.boxIng {
+    width: 850px;
+}
+
 .ingList {
     list-style-type: none;
-    display: inline;
-    width: 200px;
+    text-align: center;
+    padding-left: -40px;
 }
+
+.ingList2 {
+    list-style-type: none;
+    text-align: center;
+    padding-left: -40px;
+}
+
+.ingForm {
+    width: 30%;
+}
+
+.recettePrepa {
+    width: 800px;
+}
+
+.invite-form-control {
+    box-shadow: none;
+    border-radius: 0px;
+    width: 30%;
+}
+
+
+
