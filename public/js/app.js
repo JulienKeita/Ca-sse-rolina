@@ -1,7 +1,8 @@
 function config($routeProvider) {
     $routeProvider
-        .when('/', {
-            templateUrl: 'views/main.html',
+        .when('/soirees', {
+            templateUrl: 'views/soirees.html',
+            controller: 'soireesController'
 
         })
         .when('/plats', {
@@ -16,7 +17,7 @@ function config($routeProvider) {
             templateUrl: 'views/about.html',
         })
         .otherwise({
-            redirectTo: '/'
+            redirectTo: 'views/soirees.html'
         });
 }
 
@@ -32,8 +33,10 @@ function run($rootScope, $location) {
 
 angular.module('app', ['ngRoute'])
     .config(config)
+.controller('soireesController',soireesController)
     .controller('platsController', platsController)
     .controller('invitesController', invitesController)
+    .service('soireesService', soireeServiceService)
     .service('platsService', platsService)
     .service('invitesService', invitesService)
     /*.factory('', )*/
