@@ -9,21 +9,24 @@ function platsController($scope, $http, platsService) {
 
     }
 
-    /*$scope.addb = function () {
+    $scope.addb = function () {
         var data = {};
         data.ingredient1 = $scope.ingredient1;
         data.ingredient2 = $scope.ingredient2;
         data.ingredient3 = $scope.ingredient3;
         data.ingredient4 = $scope.ingredient4;
         $scope.show2 = true;
-        $scope.show3 = $scope.order.ingredient2;
-        $scope.show4 = $scope.order.ingredient3;
+        $scope.show3 = $scope.plats.ingredient2;
+        $scope.show4 = $scope.plats.ingredient3;
+
         platsService.create(data).then(function (res) {
             load();
         });
         $scope.ingredient1 = "";
+        $scope.ingredient2 = "";
+        $scope.ingredient3 = "";
+        $scope.ingredient4 = "";
     }
-    */
 
     $scope.add = function () {
         var data = {};
@@ -31,17 +34,13 @@ function platsController($scope, $http, platsService) {
         data.note = $scope.note;
         data.commentaires = $scope.commentaires;
         data.date = $scope.date;
-        var data = {};
-
         data.ingredient1 = $scope.ingredient1;
         data.ingredient2 = $scope.ingredient2;
         data.ingredient3 = $scope.ingredient3;
         data.ingredient4 = $scope.ingredient4;
-
         $scope.show2 = true;
-        $scope.show3 = $scope.order.ingredient2;
-        $scope.show4 = $scope.order.ingredient3;
-
+        $scope.show3 = $scope.ingredient2;
+        $scope.show4 = $scope.ingredient3;
         data.image = $scope.imageFile;
         platsService.create(data).then(function (res) {
             load();
@@ -50,10 +49,10 @@ function platsController($scope, $http, platsService) {
         $scope.note = "";
         $scope.commentaires = "";
         $scope.date = "";
-        $scope.ingredient1 = "";
+        /*$scope.ingredient1 = "";
         $scope.ingredient2 = "";
         $scope.ingredient3 = "";
-        $scope.ingredient4 = "";
+        $scope.ingredient4 = "";*/
         $scope.imageFile = "";
         location.reload();
     }
@@ -85,27 +84,21 @@ function platsController($scope, $http, platsService) {
     load();
 }
 
+
+
+
+
+
 /*function ($scope) {
-    $scope.order = {
+    $scope.plat = {
         ingrédient n°1: 'sample'
     };
 
     $scope.addb + = function () {
         $scope.show2 = true;
-        $scope.show3 = $scope.order.joAddressLine2;
-        $scope.show4 = $scope.order.joAddressLine3;
+        $scope.show3 = $scope.plat.joAddressLine2;
+        $scope.show4 = $scope.plat.joAddressLine3;
     }
 
     }
 });*/
-
-
-
-
-/* 
-
-créer variable "selectedPlat" 
-
-$scope selectedPlat = 
-
-{{}}*/

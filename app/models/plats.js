@@ -49,6 +49,9 @@ var Plats = {
             commentaires: req.body.commentaires,
             date: req.body.date,
             ingredient1: req.body.ingredient1,
+            ingredient2: req.body.ingredient2,
+            ingredient3: req.body.ingredient3,
+            ingredient4: req.body.ingredient4,
             image: req.body.image
         }, function () {
             res.sendStatus(200);

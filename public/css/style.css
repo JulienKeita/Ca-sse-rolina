@@ -277,7 +277,9 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
 
 .modal-header2 {
     height: 250px;
-    background-size: cover;
+    background-size: 900px 600px;
+    background-position: center;
+    box-shadow: 0px 1px 3px black;
 }
 
 .modal-title2 {
@@ -290,7 +292,7 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
 }
 
 .subPart {
-    margin-top: 50px;
+    margin-top: 15px;
 }
 
 .subPart > h3 {
@@ -298,12 +300,28 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
     text-shadow: 0px 0px 3px black;
 }
 
+.firstBlock {
+    margin-top: 30px;
+}
+
 .thirdPart {
     color: black;
 }
 
+.boxIng {
+    width: 850px;
+}
+
 .ingList {
     list-style-type: none;
-    display: inline;
-    width: 200px;
+    text-align: center;
+    padding-left: -40px;
+}
+
+.ingForm {
+    width: 30%;
+}
+
+.recettePrepa {
+    width: 800px;
 }

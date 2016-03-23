@@ -13,7 +13,7 @@
             <h2> Chercher un plat</h2>
             <div class=" searchingplats">
                 <input class="searchInput" type="text" ng-model="query" placeholder="Entrer nom de plat" />
-                <select ng-model="order" class="orderBy" style="color:black;">
+                <select ng-model="plat" class="platBy" style="color:black;">
                     <option value="" disabled selected hidden>Trier par</option>
                     <option value="description">Organiser par nom</option>
                     <option value="note">Organiser par note</option>
@@ -58,7 +58,7 @@
 
 
 <ul class="list-group">
-    <li class="list-group-item" ng-repeat="plat in plats | filter:{description: query} | orderBy:order">
+    <li class="list-group-item" ng-repeat="plat in plats | filter:{description: query} | orderBy:plat">
         <form class=" form-inline">
             <div class="form-group secondForm">
                 <img class="imgAdd" src="{{plat.image || 'http://www.justcurious.co.za/wp-content/uploads/2013/03/restaurant-icon-283a3eceacfd466c9081cc365869b986.gif'}}" />
@@ -70,7 +70,7 @@
                 </div>
 
                 <span class="upDel">
-                <button type="submit" class="btn btn-default recetteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#myModal2">Recette</button>
+                <button type="submit" class="btn btn-default recetteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#{{plat._id}}">Recette</button>
                 <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
                 <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>
                 </span>
@@ -79,48 +79,41 @@
     </li>
 </ul>
 
-<div class="modal fade" ng-repeat="plat in plats | filter:{description: query} | orderBy:order" id="myModal2" role="dialog">
+<div class="modal fade" ng-repeat="plat in plats | filter:{description: query} | orderBy:plat" id="{{plat._id}}" role=" dialog">
     <div class="modal-dialog modal-lg hmm">
         <div class="modal-content2" style="text-align:center;">
-            <div class="modal-header2" ng-style="{'background-image':'url({{plat.image}})'}">
-                <h2 class="modal-title2 ">{{plat.description}}</h2>
+            <div class="modal-header2" ng-style="{ 'background-image': 'url({{plat.image}})'}">
+                <h2 class="modal-title2">{{plat.description}}</h2>
             </div>
-            <div class="modal-body ">
-                <div class="row subPart ">
+            <div class="modal-body">
+                <div class="row subPart">
                     <h3>Ingrédients</h3>
                     <ul class="ingList">
-                        <li>
+                        <li class="boxIng">
 
-                            <div>
-                                <input type="text" class="form-control" name="ingredient1" placeholder="ingrédient n°1" ng-model="order.ingredient1" required />
-                                <input type="text" class="form-control" name="ingredient2" placeholder="ingrédient n°2" ng-model="order.ingredient2" ng-show="order.ingredient2 || show2" />
-                                <input type="text" class="form-control" name="ingredient3" placeholder="ingrédient n°3" ng-model="order.ingredient3" ng-show="order.ingredient3 || show3" />
-                                <input type="text" class="form-control" name="ingredient4" placeholder="ingrédient n°4" ng-model="order.ingredient4" ng-show="order.ingredient4 || show4" />
-                                <button ng-click="add()">Ajouter ingrédient</button>
+                            <div class="firstBlock">
+                                <input type="text" class="form-control ingForm" name="ingredient1" placeholder="ingrédient n°1" ng-model="plat.ingredient1" required />
+                                <input type="text" class="form-control ingForm" name="ingredient2" placeholder="ingrédient n°2" ng-model="plat.ingredient2" ng-show="plat.ingredient2 || show2" />
+                                <input type="text" class="form-control ingForm" name="ingredient3" placeholder="ingrédient n°3" ng-model="plat.ingredient3" ng-show="plat.ingredient3 || show3" />
+                                <input type="text" class="form-control ingForm" name="ingredient4" placeholder="ingrédient n°4" ng-model="plat.ingredient4" ng-show="plat.ingredient4 || show4" />
+                                <button ng-click="addb()">Ajouter ingrédient</button>
                             </div>
-
-                            <input type="text" class="form-control secondPart thirdPart" id="inputMessage" ng-model="plat.ingredient1" placeholder="Ingrédient n°1">
-
-                            <button type="submit" class="btn btn-default" ng-click="update(plat) showme=true">Mettre à jour</button>
-
-                            <input type="text" ng-show="showme" class="form-control secondPart thirdPart" id="inputMessage" ng-model="plat.ingredient2" placeholder="Ingrédient n°2">
                         </li>
                     </ul>
                 </div>
                 <hr>
-                <div class="row subPart ">
-                    <h3>Préparation</h3>
-                    <p>Ce qu'il faut faire</p>
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
                 </div>
                 <hr>
-                <div class="row subPart ">
+                <div class="row subPart">
                     <h3>Commentaires</h3>
                     <p></p>
                 </div>
             </div>
-            <div class="modal-footer2 " style="text-align:right; ">
-                <button type="submit " class="btn btn-default " ng-click="update(plat) ">Mettre à jour</button>
-                <button type="submit " class="btn btn-danger " ng-click="delete(plat) ">X</button>
+            <div class="modal-footer2" style="text-align:right;">
+                <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
+                <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>
             </div>
         </div>
     </div>
