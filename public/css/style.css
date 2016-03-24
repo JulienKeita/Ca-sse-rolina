@@ -282,6 +282,10 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
     box-shadow: 0px 1px 3px black;
 }
 
+.modal-body {
+    text-align: left;
+}
+
 .modal-title2 {
     font-size: 3em;
     padding-top: -10px;
