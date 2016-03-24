@@ -1,12 +1,17 @@
 // SOIREE CONTROLLER
-function soireesController($scope, $http, soireesService) {
+function soireesController($scope, $http, soireesService, invitesService, platsService) {
     $scope.title = "Soiree List";
 
     function load() {
         soireesService.get().then(function (res) {
             $scope.soirees = res.data;
         });
-
+        invitesService.get().then(function (res) {
+            $scope.invites = res.data;
+        });
+        platsService.get().then(function (res) {
+            $scope.plats = res.data;
+        });
     }
 
     $scope.addb = function () {

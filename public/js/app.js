@@ -35,8 +35,9 @@ angular.module('app', ['ngRoute'])
     .controller('soireesController', soireesController)
     .controller('platsController', platsController)
     .controller('invitesController', invitesController)
+    .service('invitesService', invitesService)
     .service('soireesService', soireesService)
     .service('platsService', platsService)
-    .service('invitesService', invitesService)
+    
     /*.factory('', )*/
     .run(run);

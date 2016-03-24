@@ -325,3 +325,7 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
 .recettePrepa {
     width: 800px;
 }
+
+.feedbackForm {
+    text-align: left;
+}
