@@ -1,10 +1,10 @@
 // SOIREE CONTROLLER
-function soireeController($scope, $http, soireeService) {
+function soireesController($scope, $http, soireesService) {
     $scope.title = "Soiree List";
 
     function load() {
-        soireeService.get().then(function (res) {
-            $scope.soiree = res.data;
+        soireesService.get().then(function (res) {
+            $scope.soirees = res.data;
         });
 
     }
@@ -84,21 +84,3 @@ function soireeController($scope, $http, soireeService) {
     load();
 }
 
-
-
-
-
-
-/*function ($scope) {
-    $scope.plat = {
-        ingrédient n°1: 'sample'
-    };
-
-    $scope.addb + = function () {
-        $scope.show2 = true;
-        $scope.show3 = $scope.plat.joAddressLine2;
-        $scope.show4 = $scope.plat.joAddressLine3;
-    }
-
-    }
-});*/

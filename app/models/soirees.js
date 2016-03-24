@@ -7,10 +7,10 @@ var soireesSchema = new mongoose.Schema({
     commentaires: String,
     invite1: String,
     image: String,
-    invite1: String,
-    invite2: String,
-    invite3: String,
-    invite4: String
+    invites:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Invites'
+    }]
 });
 
 var Soirees = {
@@ -23,10 +23,6 @@ var Soirees = {
             note: req.body.note,
             commentaires: req.body.commentaires,
             date: req.body.date,
-            invite1: req.body.invite1,
-            invite2: req.body.invite2,
-            invite3: req.body.invite3,
-            invite4: req.body.invite4,
             image: req.body.image
         }, function () {
             res.sendStatus(200);
@@ -34,7 +30,9 @@ var Soirees = {
     },
 
     findAll: function (req, res) {
-        Soirees.model.find(function (err, data) {
+        Soirees.model.find()
+        .populate('invites')
+        .exec(function (err, data) {
             res.send(data);
         });
     },
@@ -45,10 +43,6 @@ var Soirees = {
             note: req.body.note,
             commentaires: req.body.commentaires,
             date: req.body.date,
-            invite1: req.body.invite1,
-            invite2: req.body.invite2,
-            invite3: req.body.invite3,
-            invite4: req.body.invite4,
             image: req.body.image
         }, function () {
             res.sendStatus(200);
