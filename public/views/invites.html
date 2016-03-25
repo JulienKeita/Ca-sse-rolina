@@ -35,7 +35,22 @@
                 <div class="row">
                     <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Nom" ng-model="description">
 
-                    <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Restrictions" ng-model="restrictions">
+                   <!--  <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Restrictions" ng-model="restrictions"> -->
+
+<h5 class="restrictionstitre">Restrictions</h5>
+                
+  <label>lait:
+    <input type="checkbox" ng-model="checkboxModel[0]" ng-true-value="'lait'" ng-false-value="''">
+  </label><br/>
+  <label>arachide:
+    <input type="checkbox" ng-model="checkboxModel[1]"
+           ng-true-value="'arachide'" ng-false-value="''">
+            </label><br/>
+  <label>gluten:
+    <input type="checkbox" ng-model="checkboxModel[2]"
+           ng-true-value="'gluten'" ng-false-value="''">
+   </label>
+
 
                     <input type="text" class="control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date">
                 </div>
@@ -99,11 +114,15 @@
                         <div class="row subPart ">
                             <h3>Restrictions</h3>
                             <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.restrictions">
-                        </div>
+
 
                         <div class="row subPart ">
                             <h3>Commentaires</h3>
                             <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.commentaires">
+
+
+
+
                         </div>
 
                         <div class="row subPart ">

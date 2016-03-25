@@ -372,3 +372,18 @@ input#inviteinputMessage .inviteform-control.ng-pristine.ng-valid.ng-not-empty.n
 
 
 
+
+.invitespanel {
+  width:90%;
+  margin:2em auto;
+}
+
+.restrictionstitre {
+border-radius: 0px;
+    box-shadow: none;
+    color: grey;
+    margin-left: 45px;
+    margin-top: 20px;
+    margin-bottom: -30px;
+    
+}

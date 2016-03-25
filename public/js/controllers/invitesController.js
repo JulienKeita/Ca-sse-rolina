@@ -1,6 +1,23 @@
 // PLATS CONTROLLER
 function invitesController($scope, $http, invitesService) {
+
+
+
+    // $scope.checkboxModel = 'ExampleController';
+    // {
+    //    value1 : true,
+    //    value2 : true
+    // };
+    
+
+
+
     $scope.title = "Invites List";
+
+    $scope.checkboxModel = [];
+
+    
+    
 
     function load() {
         invitesService.get().then(function (res) {
@@ -11,7 +28,7 @@ function invitesController($scope, $http, invitesService) {
         var data = {};
         data.description = $scope.description;
         data.note = $scope.note;
-        data.restrictions = $scope.restrictions;
+        data.restrictions = $scope.checkboxModel;
         data.date = $scope.date;
         data.image = $scope.imageFile;
         invitesService.create(data).then(function (res) {
@@ -48,5 +65,25 @@ function invitesController($scope, $http, invitesService) {
             preview.src = "";
         }
     }
+
+
+
+$scope.content = '';
+
+  $scope.isChecked = function(id){
+      var match = false;
+      for(var i=0 ; i < $scope.data.length; i++) {
+        if($scope.data[i].id == id){
+          match = true;
+        }
+      }
+      return match;
+  };
+  
+
+    
+
+
+
     load();
 }

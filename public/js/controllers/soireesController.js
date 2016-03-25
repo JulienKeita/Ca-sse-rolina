@@ -1,6 +1,13 @@
 // SOIREE CONTROLLER
 function soireesController($scope, $http, soireesService, invitesService, platsService) {
     $scope.title = "Soiree List";
+    $scope.i = 1;
+    $scope.suivant = function(){
+        $scope.i +=1;
+    }
+     $scope.precedent = function(){
+        $scope.i -=1;
+    }
 
     function load() {
         soireesService.get().then(function (res) {
@@ -12,6 +19,15 @@ function soireesController($scope, $http, soireesService, invitesService, platsS
         platsService.get().then(function (res) {
             $scope.plats = res.data;
         });
+    }
+    
+
+      
+    $scope.addToSoireesInvites = function(Invite){
+        $scope.soirees.invites.push(invite);
+    }
+    $scope.addToSoireesPlats = function(Plat){
+        $scope.soirees.plats.push(plat);
     }
 
     $scope.addb = function () {

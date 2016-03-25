@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var invitesSchema = new mongoose.Schema({
     description: String,
     preferences: String,
-    restrictions: String,
+    restrictions: [String],
     commentaires: String,
     date: String,
     image: String
