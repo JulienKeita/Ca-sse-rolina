@@ -92,6 +92,12 @@ h1 {
     background-color: white;
 }
 
+/*
+.buttonbutton {
+    float: right;
+}
+*/
+
 .parcourir {
     background-color: white;
     color: black;
@@ -129,6 +135,7 @@ h1 {
 
 .modal-footer {
     border-top: 1px white solid;
+    background-color: black;
 }
 
 .imgForm {
@@ -332,4 +339,8 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
 
 .feedbackForm {
     text-align: left;
+}
+
+.corps {
+    background-color:azure;
 }

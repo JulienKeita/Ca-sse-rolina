@@ -7,6 +7,7 @@ var soireesSchema = new mongoose.Schema({
     commentaires: String,
     invite1: String,
     image: String,
+    select: String,
     invites:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Invites'
@@ -23,7 +24,8 @@ var Soirees = {
             note: req.body.note,
             commentaires: req.body.commentaires,
             date: req.body.date,
-            image: req.body.image
+            image: req.body.image,
+            select: req.body.select
         }, function () {
             res.sendStatus(200);
         })
@@ -43,7 +45,8 @@ var Soirees = {
             note: req.body.note,
             commentaires: req.body.commentaires,
             date: req.body.date,
-            image: req.body.image
+            image: req.body.image,
+            select: req.body.select
         }, function () {
             res.sendStatus(200);
         })
