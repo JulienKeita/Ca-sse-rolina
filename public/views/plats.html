@@ -1,7 +1,7 @@
 <div class="header">
     <h1><strong>L</strong>es <strong>P</strong>lats</h1>
 </div>
-<div class="container big">
+<div class="container big" set-class-when-at-top="fix-to-top">
     <div class="row" style="text-align:center;">
         <div class="addPlatField col-md-6">
             <h2>Ajouter un plat</h2>
@@ -41,7 +41,7 @@
                         <input class="parcourir" type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
                     </form>
 
-                    <img id="preview" style="margin-top:30px;">
+                    <img id="preview" style="margin-top:30px;" src="{{plat.image || '../food.png'}}">
 
                 </div>
             </div>
@@ -61,17 +61,18 @@
     <li class="list-group-item" ng-repeat="plat in plats | filter:{description: query} | orderBy:plat">
         <form class=" form-inline">
             <div class="form-group secondForm">
-                <img class="imgAdd" src="{{plat.image || 'http://www.justcurious.co.za/wp-content/uploads/2013/03/restaurant-icon-283a3eceacfd466c9081cc365869b986.gif'}}" />
+                <img class="imgAdd" src="{{plat.image || '../food.png'}}" />
                 <div class="listInput">
                     <input type="text" class="form-control secondPart firstChild" id="inputMessage" ng-model="plat.description" placeholder="Nom du plat">
                     <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.date" placeholder="Date dernier repas">
+
                     <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.note" placeholder="Note du plat">
                     <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.commentaires" placeholder="Commentaire sur le plat">
                 </div>
 
                 <span class="upDel">
                 <button type="submit" class="btn btn-default recetteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#{{plat._id}}">Recette</button>
-                <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
+                <button type="submit" class="btn btn-default addbutton1" ng-click="update(plat)">Mettre à jour</button>
                 <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>
                 </span>
             </div>
@@ -88,33 +89,45 @@
             <div class="modal-body">
                 <div class="row subPart">
                     <h3>Ingrédients</h3>
-                    <ul class="ingList">
-                        <li class="boxIng">
 
-                            <div class="firstBlock">
-                                <input type="text" class="form-control ingForm" name="ingredient1" placeholder="ingrédient n°1" ng-model="plat.ingredient1" required />
-                                <input type="text" class="form-control ingForm" name="ingredient2" placeholder="ingrédient n°2" ng-model="plat.ingredient2" ng-show="plat.ingredient2 || show2" />
-                                <input type="text" class="form-control ingForm" name="ingredient3" placeholder="ingrédient n°3" ng-model="plat.ingredient3" ng-show="plat.ingredient3 || show3" />
-                                <input type="text" class="form-control ingForm" name="ingredient4" placeholder="ingrédient n°4" ng-model="plat.ingredient4" ng-show="plat.ingredient4 || show4" />
-                                <button ng-click="addb()">Ajouter ingrédient</button>
-                            </div>
-                        </li>
-                    </ul>
+                    <input type="button" id="more_fields" ng-click="add_fields()" value="Ajouter un ingrédient" />
+                    <div id="room_fileds">
+                        <div class="content" id="wrapper">
+
+
+                            <input type="text" class="ingType" style="width:177px;" name="width[]" value="" placeholder="ingrédient" ng-model="plat.ingredient" />
+
+                        </div>
+                        <button type="submit" class="btn btn-default addbutton" ng-click="addb(); update(plat)">Enregistrer</button>
+                    </div>
                 </div>
-                <hr>
-                <div class="form-group">
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
+
+                <div class="row subPart">
+                    <h3>Préparation</h3>
+                    <div class="form-group recipe">
+                        <textarea class="form-control recipeSub" rows="5" id="inputMessage" ng-model="plat.recipe" placeholder="Entrer recette"></textarea>
+                        <button type="submit" class="btn btn-default addbutton" ng-click="addb(); update(plat)">Mettre à jour</button>
+                    </div>
                 </div>
-                <hr>
+
                 <div class="row subPart">
                     <h3>Commentaires</h3>
-                    <p></p>
+                    <div class="form-group recipe">
+                        <textarea class="form-control recipeSub yo" rows="5" id="inputMessage" ng-model="plat.recipeComment" placeholder="Entrer un commentaire sur la recette"></textarea>
+                        <button type="submit" class="btn btn-default addbutton" ng-click="addb(); update(plat)">Mettre à jour</button>
+                    </div>
                 </div>
+
             </div>
+            <hr>
             <div class="modal-footer2" style="text-align:right;">
-                <button type="submit" class="btn btn-default" ng-click="update(plat)">Mettre à jour</button>
-                <button type="submit" class="btn btn-danger" ng-click="delete(plat)">X</button>
+                <button type="submit" class="btn btn-default addbutton" ng-click="addb(); update(plat)">Mettre à jour</button>
+                <button type="button" class="btn btn-default closebutton" data-dismiss="modal">Fermer</button>
             </div>
+
         </div>
+
+
     </div>
+
 </div>

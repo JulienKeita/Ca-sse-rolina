@@ -1,4 +1,4 @@
-// PLATS CONTROLLER
+// INVITES CONTROLLER
 function invitesController($scope, $http, invitesService) {
 
 
@@ -9,21 +9,22 @@ function invitesController($scope, $http, invitesService) {
 
 
     function load() {
-        invitesService.get().then(function(res) {
+        invitesService.get().then(function (res) {
             $scope.invites = res.data;
         });
 
     }
 
 
-    $scope.add = function() {
+
+    $scope.add = function () {
         var data = {};
         data.description = $scope.description;
         data.note = $scope.note;
         data.restrictions = $scope.restrictions;
         data.date = $scope.date;
         data.image = $scope.imageFile;
-        invitesService.create(data).then(function(res) {
+        invitesService.create(data).then(function (res) {
             load();
         });
         $scope.description = "";
@@ -33,21 +34,21 @@ function invitesController($scope, $http, invitesService) {
         $scope.imageFile = "";
         location.reload();
     }
-    $scope.update = function(invites) {
-        invitesService.update(invites._id, invites).then(function(res) {
+    $scope.update = function (invites) {
+        invitesService.update(invites._id, invites).then(function (res) {
+            /*load();*/
+        });
+    }
+    $scope.delete = function (invites) {
+        invitesService.delete(invites._id).then(function (res) {
             load();
         });
     }
-    $scope.delete = function(invites) {
-        invitesService.delete(invites._id).then(function(res) {
-            load();
-        });
-    }
-    $scope.previewFile = function() {
+    $scope.previewFile = function () {
         var preview = document.querySelector('#preview');
         var file = document.querySelector('input[type=file]').files[0];
         var reader = new FileReader();
-        reader.onloadend = function() {
+        reader.onloadend = function () {
             preview.src = reader.result;
             $scope.imageFile = reader.result;
         }

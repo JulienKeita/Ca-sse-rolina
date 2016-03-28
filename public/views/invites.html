@@ -3,19 +3,21 @@
 </div>
 <div class="container big">
     <div class="row" style="text-align:center;">
-        <div class="addInviteField col-md-6">
+        <div class="addPlatField col-md-6">
             <h2>Ajouter un invité</h2>
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#myModal">Ajouter</button>
         </div>
+
         <div class="plat-field col-md-6">
             <h2> Chercher un invité</h2>
-            <div class=" searchinginvites">
+            <div class=" searchingplats">
                 <input class="searchInput" type="text" ng-model="query" placeholder="Entrer nom d'invité" />
                 <select ng-model="order" class="orderBy" style="color:black;">
                     <option value="" disabled selected hidden>Trier par</option>
                     <option value="description">Organiser par nom</option>
                     <option value="description">Organiser par date</option>
+
                 </select>
             </div>
         </div>
@@ -32,8 +34,10 @@
             <div class="modal-body">
                 <div class="row">
                     <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Nom" ng-model="description">
+
                     <!--  <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Restrictions" ng-model="restrictions"> -->
-                    <h5 class="restrictionstitre">Restrictions</h5>
+
+                     <h5 class="restrictionstitre">Restrictions</h5>
                     <div id="invitescheckbox">
                         <label>
                             <input type="checkbox" ng-model="restrictions[0]" ng-true-value="'lait'" ng-false-value="''"> lait
@@ -47,13 +51,17 @@
                             ng-true-value="'gluten'" ng-false-value="''"> gluten
                         </label>
                     </div>
+
+
                     <input type="text" class="control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date">
                 </div>
                 <div style="text-align:center;">
                     <form>
                         <input class="parcourir" type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
                     </form>
-                    <img id="preview" style="margin-top:30px;">
+
+                    <img id="preview" style="margin-top:30px;" src="{{invite.image || 'http://fanexpodallas.com/wp-content/uploads/550w_soaps_silhouettesm.jpg'}}">
+
                 </div>
             </div>
             <div class="modal-footer">
@@ -65,26 +73,30 @@
 </div>
 <br>
 <br>
+
+
 <ul class="list-group">
     <li class="list-group-item" ng-repeat="invite in invites | filter:{description: query} | orderBy:order">
         <form class=" form-inline">
             <div class="form-group secondForm">
                 <img class="imgAdd" src="{{invite.image || 'http://fanexpodallas.com/wp-content/uploads/550w_soaps_silhouettesm.jpg'}}" />
                 <div class="listInput">
-                    <input type="text" class="form-control secondPart firstChild" id="inputMessage" ng-model="invite.description">
-                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="invite.date">
-                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="invite.restrictions">
+                    <input type="text" class="form-control secondPart firsttitle firstChild" id="inputMessage" ng-model="invite.description" placeholder="Prénom">
+                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="invite.date" placeholder="Dernière invitation">
+                    <input type="text" class="form-control secondPart" id="inputMessage" ng-model="invite.restrictions" placeholder="Aucune restriction">
                 </div>
                 <span class="upDel">
-                    <button type="submit" class="btn btn-default inviteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#{{invite._id}}">Invité</button>
-                    <!-- <button type="submit" class="btn btn-default inviteButton" ng-click="update(invite)">Invité</button> -->
-                    <button type="submit" class="btn btn-default" ng-click="update(invite)">Mettre à jour</button>
+                    <button type="submit" class="btn btn-default recetteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#{{invite._id}}">Invité</button>
+    
+                    <button type="submit" class="btn btn-default addbutton1" ng-click="update(invite)">Mettre à jour</button>
                     <button type="submit" class="btn btn-danger" ng-click="delete(invite)">X</button>
                 </span>
             </div>
         </form>
     </li>
 </ul>
+
+
 <div class="modal fade" ng-repeat="invite in invites | filter:{description: query} | orderBy:order" id="{{invite._id}}" role="dialog">
     <div class="modal-dialog modal-lg hmm">
         <div class="modal-contentinvite" style="text-align:center;">
@@ -92,10 +104,10 @@
                 <h2 class="modal-title2 ">{{invite.description}}</h2>
             </div>
             <div class="modal-body ">
-                <ul class="ingList2">
-                    <li>
+                <!-- <ul class="ingList2">
+                    <li> -->
                         <div class="row subPart2 ">
-                            <h3>Changer le nom</h3>
+                            <h3 class="nommodale2">Changer le nom</h3>
                             <!-- <div class="listInput"> -->
                             <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.description">
                         </div>
@@ -124,14 +136,15 @@
                                 <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.date">
                             </div>
                         </div>
-                    </li>
-                </ul>
+                   <!--  </li>
+                </ul> -->
             </div>
             
         </div>
-        <div class="modal-footer2 " style="text-align:right; ">
-            <button type="submit " class="btn btn-default " ng-click="update(invite) ">Mettre à jour</button>
-            <button type="submit " class="btn btn-danger " ng-click="delete(invite) ">X</button>
+
+        <div class="modal-footer2" style="text-align:right;">
+            <button type="submit" class="btn btn-default addbutton" ng-click="update(invite)">Mettre à jour</button>
+            <button type="button" class="btn btn-default closebutton" data-dismiss="modal">Fermer</button>
         </div>
     </div>
 </div>
