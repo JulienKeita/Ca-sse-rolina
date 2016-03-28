@@ -8,13 +8,13 @@ var platsSchema = new mongoose.Schema({
     note: String,
     commentaires: String,
     date: String,
-    ingredient1: String,
     image: String,
-    ingredient1: String,
-    ingredient2: String,
-    ingredient3: String,
-    ingredient4: String
+    ingredient: String,
+    ingredients: [String],
+    recipe: String,
+    recipeComment: String
 });
+
 
 var Plats = {
 
@@ -26,11 +26,11 @@ var Plats = {
             note: req.body.note,
             commentaires: req.body.commentaires,
             date: req.body.date,
-            ingredient1: req.body.ingredient1,
-            ingredient2: req.body.ingredient2,
-            ingredient3: req.body.ingredient3,
-            ingredient4: req.body.ingredient4,
-            image: req.body.image
+            ingredient: req.body.ingredient,
+            ingredients: req.body.ingredients,
+            image: req.body.image,
+            recipe: req.body.recipe,
+            recipeComment: req.body.recipeComment
         }, function () {
             res.sendStatus(200);
         })
@@ -48,11 +48,11 @@ var Plats = {
             note: req.body.note,
             commentaires: req.body.commentaires,
             date: req.body.date,
-            ingredient1: req.body.ingredient1,
-            ingredient2: req.body.ingredient2,
-            ingredient3: req.body.ingredient3,
-            ingredient4: req.body.ingredient4,
-            image: req.body.image
+            ingredient: req.body.ingredient,
+            ingredients: req.body.ingredients,
+            image: req.body.image,
+            recipe: req.body.recipe,
+            recipeComment: req.body.recipeComment
         }, function () {
             res.sendStatus(200);
         })
@@ -64,6 +64,7 @@ var Plats = {
         })
     }
 }
+
 
 
 

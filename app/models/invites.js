@@ -5,14 +5,10 @@ var mongoose = require('mongoose');
 var invitesSchema = new mongoose.Schema({
     description: String,
     preferences: String,
-    allergies: String,
+    restrictions: [String],
     commentaires: String,
-    recette: {
-        nom: String,
-        ingredients: String,
-        preparation: String,
-        avis: String
-    }
+    date: String,
+    image: String
 });
 
 var Invites = {
@@ -23,8 +19,10 @@ var Invites = {
         Invites.model.create({
             description: req.body.description,
             preferences: req.body.preferences,
-            allergies: req.body.allergies,
-            commentaires: req.body.commentaires
+            restrictions: req.body.restrictions,
+            commentaires: req.body.commentaires,
+            image: req.body.image,
+            date: req.body.date
 
         }, function () {
             res.sendStatus(200);
@@ -41,8 +39,10 @@ var Invites = {
         Invites.model.findByIdAndUpdate(req.params.id, {
             description: req.body.description,
             preferences: req.body.preferences,
-            allergies: req.body.allergies,
-            commentaires: req.body.commentaires
+            restrictions: req.body.restrictions,
+            commentaires: req.body.commentaires,
+            image: req.body.image,
+            date: req.body.date
         }, function () {
             res.sendStatus(200);
         })
