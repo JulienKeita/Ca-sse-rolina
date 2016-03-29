@@ -1,14 +1,18 @@
 <div class="header">
     <h1><strong>L</strong>es <strong>I</strong>nvités</h1>
 </div>
+
+<!-- Bloc 1 : Ajout / Recherche -->
 <div class="container big">
     <div class="row" style="text-align:center;">
         <div class="addPlatField col-md-6">
+
+            <!-- Bouton ajoute dinvité -->
             <h2>Ajouter un invité</h2>
-            <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#myModal">Ajouter</button>
         </div>
 
+        <!-- Champs de recherche / tri -->
         <div class="plat-field col-md-6">
             <h2> Chercher un invité</h2>
             <div class=" searchingplats">
@@ -17,13 +21,13 @@
                     <option value="" disabled selected hidden>Trier par</option>
                     <option value="description">Organiser par nom</option>
                     <option value="description">Organiser par date</option>
-
                 </select>
             </div>
         </div>
     </div>
 </div>
-<!-- Modal -->
+
+<!-- Modale ajout de d'invité -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -34,9 +38,6 @@
             <div class="modal-body">
                 <div class="row">
                     <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Nom" ng-model="description">
-
-                    <!--  <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Restrictions" ng-model="restrictions"> -->
-
                     <h5 class="restrictionstitre">Restrictions</h5>
                     <div id="invitescheckbox">
                         <label>
@@ -57,9 +58,7 @@
                     <form>
                         <input class="parcourir" type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
                     </form>
-
                     <img id="preview" style="margin-top:30px;" src="{{invite.image || 'http://fanexpodallas.com/wp-content/uploads/550w_soaps_silhouettesm.jpg'}}">
-
                 </div>
             </div>
             <div class="modal-footer">
@@ -72,7 +71,7 @@
 <br>
 <br>
 
-
+<!-- Liste des invités -->
 <ul class="list-group">
     <li class="list-group-item" ng-repeat="invite in invites | filter:{description: query} | orderBy:order">
         <form class=" form-inline">
@@ -85,7 +84,6 @@
                 </div>
                 <span class="upDel">
                     <button type="submit" class="btn btn-default recetteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#{{invite._id}}">Invité</button>
-    
                     <button type="submit" class="btn btn-default addbutton1" ng-click="update(invite)">Mettre à jour</button>
                     <button type="submit" class="btn btn-danger" ng-click="delete(invite)">X</button>
                 </span>
@@ -94,7 +92,7 @@
     </li>
 </ul>
 
-
+<!-- Modale fiche invités -->
 <div class="modal fade" ng-repeat="invite in invites | filter:{description: query} | orderBy:order" id="{{invite._id}}" role="dialog">
     <div class="modal-dialog modal-lg hmm">
         <div class="modal-contentinvite" style="text-align:center;">
@@ -102,37 +100,41 @@
                 <h2 class="modal-title2">{{invite.description}}</h2>
             </div>
             <div class="modal-body">
-                <ul class="ingList2">
-                    <li>
-                        <div class="row subPart">
-                            <h3>Changer le nom</h3>
-                            <!-- <div class="listInput"> -->
-                            <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.description">
-                        </div>
-
-                        <div class="row subPart">
-                            <h3>Restrictions</h3>
-                            <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.restrictions">
-                        </div>
-
-
-                        <div class="row subPart">
-                            <h3>Commentaires</h3>
-                            <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.commentaires">
-                        </div>
-
-                        <div class="row subPart">
-                            <h3>date</h3>
-                            <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.date">
-                        </div>
-                    </li>
-                </ul>
+                <!--<ul class="ingList2">
+                    <li> -->
+                <div class="row subPart">
+                    <h3>Changer le nom</h3>
+                    <!-- <div class="listInput"> -->
+                    <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.description">
+                </div>
+                <div class="row subPart">
+                    <h3>Restrictions</h3>
+                    <div id="invitescheckbox2">
+                        <label>
+                            <input class="restbox" type="checkbox" ng-model="invite.restrictions[0]" ng-true-value="'lait'" ng-false-value="''"> lait
+                        </label>
+                        <br/>
+                        <label>
+                            <input class="restbox" type="checkbox" ng-model="invite.restrictions[1]" ng-true-value="'arachide'" ng-false-value="''"> arachide
+                        </label>
+                        <br/>
+                        <label>
+                            <input class="restbox" type="checkbox" ng-model="invite.restrictions[2]" ng-true-value="'gluten'" ng-false-value="''"> gluten
+                        </label>
+                    </div>
+                </div>
+                <div class="row subPart">
+                    <h3>Commentaires</h3>
+                    <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.commentaires">
+                </div>
+                <div class="row subPart">
+                    <h3>date</h3>
+                    <input type="text" class="invite-form-control" id="inviteinputMessage" ng-model="invite.date">
+                </div>
             </div>
-
         </div>
-
         <div class="modal-footer2" style="text-align:right;">
-            <button type="submit" class="btn btn-default addbutton" ng-click="update(invite)">Mettre à jour</button>
+            <button type="submit" class="btn btn-default addbutton" ng-click="update(invite)" data-dismiss="modal">Mettre à jour</button>
             <button type="button" class="btn btn-default closebutton" data-dismiss="modal">Fermer</button>
         </div>
     </div>

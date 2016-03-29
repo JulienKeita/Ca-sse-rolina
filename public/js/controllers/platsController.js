@@ -31,6 +31,7 @@ function platsController($scope, $http, platsService) {
         $scope.recipeLink = "";
     }
 
+
     $scope.add = function () {
         var data = {};
         data.description = $scope.description;
@@ -51,9 +52,7 @@ function platsController($scope, $http, platsService) {
         location.reload();
     }
     $scope.update = function (plats) {
-        platsService.update(plats._id, plats).then(function (res) {
-            /*load();*/
-        });
+        platsService.update(plats._id, plats).then(function (res) {});
     }
     $scope.delete = function (plats) {
         platsService.delete(plats._id).then(function (res) {

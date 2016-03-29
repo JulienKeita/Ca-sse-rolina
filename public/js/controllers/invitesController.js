@@ -6,15 +6,12 @@ function invitesController($scope, $http, invitesService) {
 
     $scope.restrictions = [];
 
-
-
     function load() {
         invitesService.get().then(function (res) {
             $scope.invites = res.data;
         });
 
     }
-
 
     $scope.add = function () {
         var data = {};
@@ -34,9 +31,7 @@ function invitesController($scope, $http, invitesService) {
         location.reload();
     }
     $scope.update = function (invites) {
-        invitesService.update(invites._id, invites).then(function (res) {
-            load();
-        });
+        invitesService.update(invites._id, invites).then(function (res) {});
     }
     $scope.delete = function (invites) {
         invitesService.delete(invites._id).then(function (res) {
@@ -58,13 +53,7 @@ function invitesController($scope, $http, invitesService) {
         }
     }
 
-
-
     $scope.content = '';
-
-
-
-
 
     load();
 }

@@ -28,7 +28,7 @@ function run($rootScope, $location) {
 }
 
 
-
+angular.module('app', ['ngAnimate']);
 angular.module('app', ['ngRoute'])
     .config(config)
     .controller('soireesController', soireesController)
@@ -37,9 +37,6 @@ angular.module('app', ['ngRoute'])
     .service('invitesService', invitesService)
     .service('soireesService', soireesService)
     .service('platsService', platsService)
-
-
-
 
 /*.factory('', )*/
 .run(run);

@@ -1,14 +1,18 @@
 <div class="header">
     <h1><strong>L</strong>es <strong>S</strong>oirées</h1>
 </div>
+
+<!-- Bloc 1 : Ajout / Recherche -->
 <div class="container big">
     <div class="row" style="text-align:center;">
+
+        <!-- Bouton ajout de soirée -->
         <div class="addPlatField col-md-6">
             <h2>Ajouter une soirée</h2>
-            <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#myModal">Ajouter</button>
         </div>
 
+        <!-- Champs de recherche / tri -->
         <div class="plat-field col-md-6">
             <h2> Chercher une soirée</h2>
             <div class=" searchingplats">
@@ -22,7 +26,9 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
+
+
+<!-- Modale ajout soirée -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -30,29 +36,23 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Ajouter une soirée</h4>
             </div>
-
             <div class="modal-body" ng-if="i==1">
                 <div class="row">
                     <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description">
-
                     <input type="text" class="control firstPart" id="inputMessage" placeholder="Date de la soirée jj/mm/AAAA" ng-model="date">
                 </div>
                 <div style="text-align:center;">
                     <form>
                         <input class="parcourir" type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
                     </form>
-
                     <img id="preview" style="margin-top:30px;" src="{{soiree.image || 'http://i.istockimg.com/file_thumbview_approve/31297488/6/stock-illustration-31297488-party-and-celebration-icon-set-.jpg'}}">
-
                 </div>
             </div>
-
             <div class="modal-body" ng-if="i==2">
                 <div class="row">
                     <div class="col-md-6">
                         <h3>Invités</h3>
                         <ul style="list-style: none;">
-
                             <li ng-repeat="invite in invites">
                                 <input type="checkbox" ng-model="invite.select" ng-click="addToSoireesInvites(invite)"> {{invite.description}}</li>
                         </ul>
@@ -68,24 +68,18 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="submit" class="btn btn-default recetteButton" ng-click="add()" style="float:right;">Valider</button>
                 <button class="btn btn-danger" ng-click="precedent(i)" style="float:right;" ng-hide="i==1">Précédent</button>
                 <button class="btn btn-default addbutton1" ng-click="suivant(i)" style="float:right;" ng-hide="i==2">Suivant</button>
-                <button type="submit" class="btn btn-default recetteButton" ng-click="add()" style="float:right;">Valider</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" style="float:right;">Annuler</button>
             </div>
         </div>
-
     </div>
-
 </div>
-
-
-</div>
-
 <br>
 <br>
 
-
+<!-- Liste des soirées -->
 <ul class="list-group">
     <li class="list-group-item" ng-repeat="soiree in soirees | filter:{description: query} | orderBy:soiree">
         <form class=" form-inline">
@@ -95,7 +89,6 @@
                     <input type="text" class="form-control secondPart firstChild" id="inputMessage" ng-model="soiree.description" placeholder="Nom de la soirée">
                     <input type="text" class="form-control secondPart" id="inputMessage" ng-model="soiree.date" placeholder="Date de la soirée">
                 </div>
-
                 <span class="upDel">
                     <button type="submit" class="btn btn-default recetteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#{{soiree._id}}">Détails</button>
                     <button type="submit" class="btn btn-default addbutton1" ng-click="update(soiree)">Mettre à jour</button>
@@ -106,6 +99,7 @@
     </li>
 </ul>
 
+<!-- Modale fiche soirées -->
 <div class="modal fade" ng-repeat="soiree in soirees | filter:{description: query} | orderBy:soiree" id="{{soiree._id}}" role=" dialog">
     <div class="modal-dialog modal-lg hmm">
         <div class="modal-content2" style="text-align:center;">
@@ -115,27 +109,22 @@
             <div class="row">
                 <div class="col-md-6">
                     <h3>Invités</h3>
-                    <ul style="list-style: none;" ng-repeat="invite in invites | filter : select: true">
+                    <ul style="list-style: none;" ng-repeat="invite in invites">
                         <li>{{invite.description}}</li>
                     </ul>
                 </div>
                 <div class="modal-body">
                     <div class="col-md-6">
                         <h3>Plats</h3>
-                        <ul style="list-style: none;">
-                            <li>{{$scope.selectPlats}}
+                        <ul style="list-style: none;" ng-repeat="plat in plats">
+                            <li>{{plat.description}}
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="modal-footer2" style="text-align:right;">
-
                 <button type="button" class="btn btn-default closebutton" data-dismiss="modal">Fermer</button>
-                <!--                <button type="submit" class="btn btn-default" ng-click="update(soiree)">Mettre à jour</button>-->
-                <!--                <button type="submit" class="btn btn-danger" ng-click="delete(soiree)">X</button>-->
-
-
             </div>
         </div>
     </div>

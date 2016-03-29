@@ -1,14 +1,18 @@
 <div class="header">
     <h1><strong>L</strong>es <strong>P</strong>lats</h1>
 </div>
+
+<!-- Bloc 1 : Ajout / Recherche -->
 <div class="container big" set-class-when-at-top="fix-to-top">
     <div class="row" style="text-align:center;">
+
+        <!-- Bouton ajoute de plat -->
         <div class="addPlatField col-md-6">
             <h2>Ajouter un plat</h2>
-            <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#myModal">Ajouter</button>
         </div>
 
+        <!-- Champs de recherche / tri -->
         <div class="plat-field col-md-6">
             <h2> Chercher un plat</h2>
             <div class=" searchingplats">
@@ -22,7 +26,8 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
+
+<!-- Modale ajout de plat -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -33,16 +38,13 @@
             <div class="modal-body">
                 <div class="row">
                     <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description">
-
                     <input type="text" class="control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date">
                 </div>
                 <div style="text-align:center;">
                     <form>
                         <input class="parcourir" type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
                     </form>
-
                     <img id="preview" style="margin-top:30px;" src="{{plat.image || '../food.png'}}">
-
                 </div>
             </div>
             <div class="modal-footer">
@@ -52,11 +54,10 @@
         </div>
     </div>
 </div>
-
 <br>
 <br>
 
-
+<!-- Liste des plats -->
 <ul class="list-group">
     <li class="list-group-item" ng-repeat="plat in plats | filter:{description: query} | orderBy:plat">
         <form class=" form-inline">
@@ -69,7 +70,6 @@
                     <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.note" placeholder="Note du plat">
                     <input type="text" class="form-control secondPart" id="inputMessage" ng-model="plat.commentaires" placeholder="Commentaire sur le plat">
                 </div>
-
                 <span class="upDel">
                 <button type="submit" class="btn btn-default recetteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#{{plat._id}}">Recette</button>
                 <button type="submit" class="btn btn-default addbutton1" ng-click="update(plat)">Mettre à jour</button>
@@ -80,6 +80,7 @@
     </li>
 </ul>
 
+<!-- Modale fiche plats -->
 <div class="modal fade" ng-repeat="plat in plats | filter:{description: query} | orderBy:plat" id="{{plat._id}}" role=" dialog">
     <div class="modal-dialog modal-lg hmm">
         <div class="modal-content2" style="text-align:center;">
@@ -89,19 +90,14 @@
             <div class="modal-body">
                 <div class="row subPart">
                     <h3>Ingrédients</h3>
-
                     <input type="button" id="more_fields" ng-click="add_fields()" value="Ajouter un ingrédient" />
                     <div id="room_fileds">
                         <div class="content" id="wrapper">
-
-
                             <input type="text" class="ingType" style="width:177px;" name="width[]" value="" placeholder="ingrédient" ng-model="plat.ingredient" />
-
                         </div>
                         <button type="submit" class="btn btn-default addbutton" ng-click="addb(); update(plat)">Enregistrer</button>
                     </div>
                 </div>
-
                 <div class="row subPart">
                     <h3>Préparation</h3>
                     <div class="form-group recipe">
@@ -109,7 +105,6 @@
                         <button type="submit" class="btn btn-default addbutton" ng-click="addb(); update(plat)">Mettre à jour</button>
                     </div>
                 </div>
-
                 <div class="row subPart">
                     <h3>Commentaires</h3>
                     <div class="form-group recipe">
@@ -117,7 +112,6 @@
                         <button type="submit" class="btn btn-default addbutton" ng-click="addb(); update(plat)">Mettre à jour</button>
                     </div>
                 </div>
-
                 <div class="row subPart">
                     <h3>Lien vers recette ?</h3>
                     <div class="form-group recipe">
@@ -125,17 +119,12 @@
                         <button type="submit" class="btn btn-default addbutton" ng-click="addb(); update(plat)">Mettre à jour</button>
                     </div>
                 </div>
-
             </div>
             <hr>
             <div class="modal-footer2" style="text-align:right;">
                 <button type="submit" class="btn btn-default addbutton" ng-click="addb(); update(plat)">Mettre à jour</button>
                 <button type="button" class="btn btn-default closebutton" data-dismiss="modal">Fermer</button>
             </div>
-
         </div>
-
-
     </div>
-
 </div>
