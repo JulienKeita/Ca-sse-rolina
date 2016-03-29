@@ -12,6 +12,9 @@ function invitesController($scope, $http, invitesService) {
         invitesService.get().then(function (res) {
             $scope.invites = res.data;
         });
+        platsService.get().then(function (res) {
+            $scope.plats = res.data;
+        });
 
     }
 

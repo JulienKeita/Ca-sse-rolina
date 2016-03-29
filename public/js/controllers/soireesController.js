@@ -3,6 +3,8 @@ var selectInvites = [];
 
 function soireesController($scope, $http, soireesService, invitesService, platsService) {
     $scope.title = "Soiree List";
+    $scope.plats = [];
+    $scope.invites = [];
     $scope.i = 1;
     $scope.suivant = function () {
         $scope.i += 1;
@@ -31,34 +33,18 @@ function soireesController($scope, $http, soireesService, invitesService, platsS
     }
     $scope.addToSoireesPlats = function (Plat) {
 
-        $scope.soirees.plats.push(plat);
+        //$scope.soirees.plats.push(plat);
     }
 
 
-    //    $scope.add = function () {
-    //        var data = {};
-    //        data.invite1 = $scope.invite1;
-    //        data.invite2 = $scope.invite2;
-    //        data.invite3 = $scope.invite3;
-    //        data.invite4 = $scope.invite4;
-    //        $scope.show2 = true;
-    //        $scope.show3 = $scope.soirees.invite2;
-    //        $scope.show4 = $scope.soirees.invite3;
-    //
-    //        soireesService.create(data).then(function (res) {
-    //            load();
-    //        });
-    //        $scope.invite1 = "";
-    //        $scope.invite2 = "";
-    //        $scope.invite3 = "";
-    //        $scope.invite4 = "";
-    //    }
-
+  
     $scope.add = function () {
         var data = {};
         data.description = $scope.description;
         data.note = $scope.note;
         data.commentaires = $scope.commentaires;
+        data.invites = $scope.invites;
+        data.plats = $scope.plats;
         data.date = $scope.date;
         data.image = $scope.imageFile;
         soireesService.create(data).then(function (res) {
@@ -68,6 +54,8 @@ function soireesController($scope, $http, soireesService, invitesService, platsS
         $scope.note = "";
         $scope.commentaires = "";
         $scope.date = "";
+        $scope.plats = [];
+        $scope.invites = [];
         /*$scope.ingredient1 = "";
         $scope.ingredient2 = "";
         $scope.ingredient3 = "";

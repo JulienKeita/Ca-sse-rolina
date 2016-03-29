@@ -8,6 +8,10 @@ var soireesSchema = new mongoose.Schema({
     invite1: String,
     image: String,
     select: String,
+    plats: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Plats'
+    }],
     invites: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Invites'
