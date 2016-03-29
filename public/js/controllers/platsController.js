@@ -16,16 +16,19 @@ function platsController($scope, $http, platsService) {
         document.getElementById('wrapper').innerHTML += '<input type="text" class="ingType" placeholder="ingrédient" ng-model="plat.ingredient">';
     }
 
+
     $scope.addb = function () {
         var data = {};
         data.recipe = $scope.recipe;
         data.recipeComment = $scope.recipeComment;
+        data.recipeLink = $scope.recipeLink;
         data.ingredient = $scope.ingredient;
         data.ingredients = $scope.ingredients;
         $scope.ingredient = "";
         $scope.ingredients = [];
         $scope.recipe = "";
         $scope.recipeComment = "";
+        $scope.recipeLink = "";
     }
 
     $scope.add = function () {

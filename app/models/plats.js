@@ -12,7 +12,8 @@ var platsSchema = new mongoose.Schema({
     ingredient: String,
     ingredients: [String],
     recipe: String,
-    recipeComment: String
+    recipeComment: String,
+    recipeLink: String
 });
 
 
@@ -30,7 +31,8 @@ var Plats = {
             ingredients: req.body.ingredients,
             image: req.body.image,
             recipe: req.body.recipe,
-            recipeComment: req.body.recipeComment
+            recipeComment: req.body.recipeComment,
+            recipeLink: req.body.recipeLink
         }, function () {
             res.sendStatus(200);
         })
@@ -52,7 +54,8 @@ var Plats = {
             ingredients: req.body.ingredients,
             image: req.body.image,
             recipe: req.body.recipe,
-            recipeComment: req.body.recipeComment
+            recipeComment: req.body.recipeComment,
+            recipeLink: req.body.recipeLink
         }, function () {
             res.sendStatus(200);
         })

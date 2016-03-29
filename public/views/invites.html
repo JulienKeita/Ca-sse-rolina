@@ -38,20 +38,19 @@
                     <!--  <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Restrictions" ng-model="restrictions"> -->
 
                     <h5 class="restrictionstitre">Restrictions</h5>
-
-                    <label>Lait :
-                        <input type="checkbox" ng-model="checkboxModel[0]" ng-true-value="'lait'" ng-false-value="''">
-                    </label>
-                    <br/>
-                    <label>Arachide :
-                        <input type="checkbox" ng-model="checkboxModel[1]" ng-true-value="'arachide'" ng-false-value="''">
-                    </label>
-                    <br/>
-                    <label>Gluten :
-                        <input type="checkbox" ng-model="checkboxModel[2]" ng-true-value="'gluten'" ng-false-value="''">
-                    </label>
-
-
+                    <div id="invitescheckbox">
+                        <label>
+                            <input type="checkbox" ng-model="restrictions[0]" ng-true-value="'lait'" ng-false-value="''"><span>Lactose</span>
+                        </label>
+                        <br/>
+                        <label>
+                            <input type="checkbox" ng-model="restrictions[1]" ng-true-value="'arachide'" ng-false-value="''"><span>Arachide</span>
+                        </label>
+                        <br/>
+                        <label>
+                            <input type="checkbox" ng-model="restrictions[2]" ng-true-value="'gluten'" ng-false-value="''"><span>Gluten</span>
+                        </label>
+                    </div>
                     <input type="text" class="control firstPart" id="inputMessage" placeholder="Date dernier repas jj/mm/AAAA" ng-model="date">
                 </div>
                 <div style="text-align:center;">
@@ -64,8 +63,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-default" ng-click="add()" style="float:right;">Ajouter</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <button type="submit" class="btn btn-default addbutton1" ng-click="add()" style="float:right;">Ajouter</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
             </div>
         </div>
     </div>
@@ -99,7 +98,7 @@
 <div class="modal fade" ng-repeat="invite in invites | filter:{description: query} | orderBy:order" id="{{invite._id}}" role="dialog">
     <div class="modal-dialog modal-lg hmm">
         <div class="modal-contentinvite" style="text-align:center;">
-            <div class="modal-header2" ng-style="{'background-image':'url({{invite.image}})'}">
+            <div class="modal-header2" ng-style="{'background-image':'url({{invite.image || 'http://fanexpodallas.com/wp-content/uploads/550w_soaps_silhouettesm.jpg'}})'}">
                 <h2 class="modal-title2">{{invite.description}}</h2>
             </div>
             <div class="modal-body">

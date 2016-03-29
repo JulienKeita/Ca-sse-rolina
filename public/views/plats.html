@@ -46,8 +46,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-default" ng-click="add()" style="float:right;">Ajouter</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <button type="submit" class="btn btn-default addbutton1" ng-click="add()" style="float:right;">Ajouter</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
             </div>
         </div>
     </div>
@@ -114,6 +114,14 @@
                     <h3>Commentaires</h3>
                     <div class="form-group recipe">
                         <textarea class="form-control recipeSub yo" rows="5" id="inputMessage" ng-model="plat.recipeComment" placeholder="Entrer un commentaire sur la recette"></textarea>
+                        <button type="submit" class="btn btn-default addbutton" ng-click="addb(); update(plat)">Mettre à jour</button>
+                    </div>
+                </div>
+
+                <div class="row subPart">
+                    <h3>Lien vers recette ?</h3>
+                    <div class="form-group recipe">
+                        <textarea class="form-control recipelink" rows="5" id="inputMessage" ng-model="plat.recipeLink" placeholder="Lien vers recette"></textarea>
                         <button type="submit" class="btn btn-default addbutton" ng-click="addb(); update(plat)">Mettre à jour</button>
                     </div>
                 </div>

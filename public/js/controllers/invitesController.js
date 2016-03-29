@@ -16,7 +16,6 @@ function invitesController($scope, $http, invitesService) {
     }
 
 
-
     $scope.add = function () {
         var data = {};
         data.description = $scope.description;
@@ -36,7 +35,7 @@ function invitesController($scope, $http, invitesService) {
     }
     $scope.update = function (invites) {
         invitesService.update(invites._id, invites).then(function (res) {
-            /*load();*/
+            load();
         });
     }
     $scope.delete = function (invites) {
