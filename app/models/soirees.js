@@ -8,7 +8,7 @@ var soireesSchema = new mongoose.Schema({
     invite1: String,
     image: String,
     select: String,
-    invites:[{
+    invites: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Invites'
     }]
@@ -33,10 +33,10 @@ var Soirees = {
 
     findAll: function (req, res) {
         Soirees.model.find()
-        .populate('invites')
-        .exec(function (err, data) {
-            res.send(data);
-        });
+            .populate('invites')
+            .exec(function (err, data) {
+                res.send(data);
+            });
     },
 
     update: function (req, res) {

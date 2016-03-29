@@ -9,18 +9,17 @@
     <link rel="icon" type="image/png" href="" />
     <title>Ca[sse]rolina</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <!-- AngularJS -->
     <script src="js/libs/angular.min.js"></script>
     <script src="js/libs/angular-route.min.js"></script>
-    <script src="js/controllers/soireesController.js"></script>
     <script src="js/controllers/platsController.js"></script>
     <script src="js/controllers/invitesController.js"></script>
-    <script src="js/controllers/showhideController.js"></script>
     <script src="js/services/platsService.js"></script>
     <script src="js/services/invitesService.js"></script>
+    <script src="js/controllers/soireesController.js"></script>
     <script src="js/services/soireesService.js"></script>
 
     <script src="js/app.js"></script>
@@ -38,11 +37,12 @@
     </header>
     <nav class="navbar" role="navigation">
 
-        <ul class="nav navbar-nav">
-            <li ng-class="{active: activetab=='/'}"><a href="#/">Accueil</a></li>
-            <li ng-class="{active: activetab=='/plats'}"><a href="#/plats">Les plats</a></li>
-            <li ng-class="{active: activetab=='/invites'}"><a href="#/invites">Les invités</a></li>
-            <li ng-class="{active: activetab=='/about'}"><a href="#/about">About</a></li>
+        <ul class="nav navbar-nav testt">
+
+            <li class="hvr-float-shadow" ng-class="{active: activetab=='/'}"><a href="#/">Les soirées</a></li>
+            <li class="hvr-float-shadow" ng-class="{active: activetab=='/plats'}"><a href="#/plats">Les plats</a></li>
+            <li class="hvr-float-shadow" ng-class="{active: activetab=='/invites'}"><a href="#/invites">Les invités</a></li>
+            <li class="hvr-float-shadow" ng-class="{active: activetab=='/about'}"><a href="#/about">A propos</a></li>
         </ul>
 
     </nav>

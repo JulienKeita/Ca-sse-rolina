@@ -4,11 +4,11 @@ var selectInvites = [];
 function soireesController($scope, $http, soireesService, invitesService, platsService) {
     $scope.title = "Soiree List";
     $scope.i = 1;
-    $scope.suivant = function(){
-        $scope.i +=1;
+    $scope.suivant = function () {
+        $scope.i += 1;
     }
-     $scope.precedent = function(){
-        $scope.i -=1;
+    $scope.precedent = function () {
+        $scope.i -= 1;
     }
 
     function load() {
@@ -22,37 +22,37 @@ function soireesController($scope, $http, soireesService, invitesService, platsS
             $scope.plats = res.data;
         });
     }
-    
 
-      
-    $scope.addToSoireesInvites = function(Invite){
-        
-            alert(Invite.select);
+
+
+    $scope.addToSoireesInvites = function (Invite) {
+
+        /*alert(Invite.select);*/
     }
-    $scope.addToSoireesPlats = function(Plat){
+    $scope.addToSoireesPlats = function (Plat) {
 
-    $scope.soirees.plats.push(plat);
+        $scope.soirees.plats.push(plat);
     }
 
-    
-//    $scope.add = function () {
-//        var data = {};
-//        data.invite1 = $scope.invite1;
-//        data.invite2 = $scope.invite2;
-//        data.invite3 = $scope.invite3;
-//        data.invite4 = $scope.invite4;
-//        $scope.show2 = true;
-//        $scope.show3 = $scope.soirees.invite2;
-//        $scope.show4 = $scope.soirees.invite3;
-//
-//        soireesService.create(data).then(function (res) {
-//            load();
-//        });
-//        $scope.invite1 = "";
-//        $scope.invite2 = "";
-//        $scope.invite3 = "";
-//        $scope.invite4 = "";
-//    }
+
+    //    $scope.add = function () {
+    //        var data = {};
+    //        data.invite1 = $scope.invite1;
+    //        data.invite2 = $scope.invite2;
+    //        data.invite3 = $scope.invite3;
+    //        data.invite4 = $scope.invite4;
+    //        $scope.show2 = true;
+    //        $scope.show3 = $scope.soirees.invite2;
+    //        $scope.show4 = $scope.soirees.invite3;
+    //
+    //        soireesService.create(data).then(function (res) {
+    //            load();
+    //        });
+    //        $scope.invite1 = "";
+    //        $scope.invite2 = "";
+    //        $scope.invite3 = "";
+    //        $scope.invite4 = "";
+    //    }
 
     $scope.add = function () {
         var data = {};
@@ -99,8 +99,6 @@ function soireesController($scope, $http, soireesService, invitesService, platsS
             preview.src = "";
         }
     }
-   
+
     load();
 }
-
-

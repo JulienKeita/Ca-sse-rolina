@@ -1,8 +1,16 @@
+/* Le Code CSS le plus sale de la galaxie... */
+
 body {
-    /*margin: 0 auto;
-    padding: 0 auto;*/
     overflow-x: hidden;
     background-color: lightgoldenrodyellow;
+}
+
+
+/* NAVBAR */
+
+.testt {
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .navbar {
@@ -12,19 +20,34 @@ body {
 }
 
 .nav > li > a {
-    transition: 0.4s;
+    transition: 0.5s;
     color: black;
+    font-weight: bold;
+    transform: translateY(8px);
+    border-radius: 6px 6px 0px 0px;
 }
 
 .nav > li > a:focus,
-.nav > li > a:hover {
+.nav > li > a:hover,
+.nav > li > a:active {
     color: white;
     background-color: black;
+    border-radius: 6px 6px 0px 0px;
 }
 
-a:active {
-    outline: 0;
+.hvr-float-shadow:hover,
+.hvr-float-shadow:focus,
+.hvr-float-shadow:active {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
 }
+
+.hvr-float-shadow {
+    transition: 0.4s;
+}
+
+
+/* END NAVBAR */
 
 .container {
     padding-right: 0px;
@@ -32,6 +55,20 @@ a:active {
     margin-right: 0px;
     margin-left: 0px;
     width: 100%;
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+
+/* ADD IMAGE */
+
+#preview {
+    width: 220px;
+    height: 147px;
+    box-shadow: 1px 1px 3px black;
 }
 
 .imgAdd {
@@ -44,7 +81,8 @@ a:active {
     transition: 0.5s;
 }
 
-.imgAdd:hover {}
+
+/* END ADD IMAGE */
 
 .listInput {
     display: inline-block;
@@ -54,12 +92,6 @@ a:active {
     float: right;
     padding-right: 10px;
     padding-top: 10px;
-}
-
-#preview {
-    width: 150px;
-    height: 117px;
-    box-shadow: 1px 1px 3px black;
 }
 
 .header {
@@ -91,12 +123,6 @@ h1 {
 .modal-content {
     background-color: white;
 }
-
-/*
-.buttonbutton {
-    float: right;
-}
-*/
 
 .parcourir {
     background-color: white;
@@ -135,7 +161,6 @@ h1 {
 
 .modal-footer {
     border-top: 1px white solid;
-    background-color: black;
 }
 
 .imgForm {
@@ -152,7 +177,7 @@ input[type="file"] {
 
 .btn {
     padding: 0;
-    margin-left: 10px;
+    margin-left: 6px;
 }
 
 .firstPart {
@@ -173,8 +198,7 @@ input[type="file"] {
 }
 
 .searchInput {
-    border-radius: 0px;
-    box-shadow: none;
+    /*box-shadow: 1px 1px 1px black;*/
     color: dimgrey;
     margin-top: -10px;
     width: 180px;
@@ -188,11 +212,13 @@ input[type="file"] {
 input,
 select,
 textarea {
-    border-radius: 4px;
+    text-align: center;
+    box-shadow: 1px 1px 1px black;
 }
 
 .list-group {
     text-align: center;
+    ;
 }
 
 .plat-field {
@@ -231,11 +257,19 @@ textarea {
 
 .recetteButton {
     background-color: palegreen;
+    box-shadow: 1px 1px 2px black;
+    color: white;
+    text-shadow: 0px 0px 2px black;
+    font-weight: bold;
 }
 
 .btn-default:hover {
     color: white;
     background-color: #31b0d5;
+}
+
+.recetteButton:hover {
+    background-color: forestgreen;
 }
 
 .secondForm {
@@ -252,6 +286,7 @@ textarea {
     border: none;
     border-bottom: 1px white solid;
     padding-right: 3px;
+    text-shadow: 0px 0px 2px black;
 }
 
 input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.ng-touched {
@@ -263,11 +298,12 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
     border: none;
     font-size: 1.2em;
     margin-bottom: 10px;
-    text-shadow: 0px 0px 3px pink;
+    text-shadow: 0px 0px 2px black;
 }
 
 .form-control {
     border-radius: 0px;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075);
 }
 
 .btn-danger {
@@ -280,17 +316,14 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
 
 .hmm {
     background-color: lightgoldenrodyellow;
+    border-radius: 10px;
 }
 
 .modal-header2 {
     height: 250px;
-    background-size: 900px 600px;
+    background-size: 900px 500px;
     background-position: center;
     box-shadow: 0px 1px 3px black;
-}
-
-.modal-body {
-    text-align: left;
 }
 
 .modal-title2 {
@@ -302,39 +335,129 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
     text-shadow: 0px 0px 2px black;
 }
 
+.modal-footer2 {
+    padding: 15px;
+}
+
 .subPart {
     margin-top: 15px;
+    text-align: center;
 }
 
 .subPart > h3 {
     color: white;
-    text-shadow: 0px 0px 3px black;
-}
-
-.firstBlock {
-    margin-top: 30px;
+    text-shadow: 0px 0px 2px black;
+    font-family: 'Lobster';
+    font-size: 2em;
 }
 
 .thirdPart {
     color: black;
 }
 
-.boxIng {
-    width: 850px;
-}
-
-.ingList {
-    list-style-type: none;
-    text-align: center;
-    padding-left: -40px;
-}
-
 .ingForm {
     width: 30%;
 }
 
-.recettePrepa {
-    width: 800px;
+.recipe:hover {
+    box-shadow: none;
+}
+
+.recipeSub {
+    border: none;
+    box-shadow: 0px 0px 2px black;
+    text-align: center;
+}
+
+.yo {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+textarea.form-control {
+    height: 220px;
+    max-width: 880px;
+}
+
+.recipelink {
+    height: 40px !important;
+}
+
+.addbutton1 {
+    background-color: skyblue;
+    color: white;
+    text-shadow: 0px 0px 1px black;
+    box-shadow: 1px 1px 3px black;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+.addbutton {
+    background-color: lightgreen;
+    margin-top: 10px;
+    box-shadow: 1px 1px 3px black;
+    transition: 0.2s;
+}
+
+.closebutton {
+    margin-top: 10px;
+    background-color: lightcoral;
+    box-shadow: 1px 1px 3px black;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+.closebutton:hover {
+    background-color: red;
+}
+
+.ingType {
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+    border: none;
+    border-bottom: 1px black solid;
+    margin-top: 15px;
+    border-radius: 0px;
+}
+
+.invite-form-control {
+    box-shadow: none;
+    border-radius: 0px;
+    width: 30%;
+}
+
+.invitespanel {
+    width: 90%;
+    margin: 2em auto;
+}
+
+.restrictionstitre {
+    border-radius: 0px;
+    box-shadow: none;
+    color: black;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    margin-bottom: -40px;
+    width: 783px;
+    border-bottom: 1px black solid;
+    text-align: center;
+}
+
+#invitescheckbox {
+    margin-top: 50px;
+    margin-left: 400px;
+    margin-bottom: 20px;
+}
+
+#invitescheckbox label input {
+    margin-right: 10px;
+}
+
+#invitescheckbox2 {
+    text-align: left;
+    margin-left: 300px;
+    margin-bottom: 20px;
 }
 
 .feedbackForm {
@@ -342,5 +465,15 @@ input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.n
 }
 
 .corps {
-    background-color:azure;
+    background-color: azure;
+}
+
+.WCS {
+    text-decoration: none;
+    color: #23527c;
+    text-shadow: 0px 0px 1px black;
+}
+
+.WCS:hover {
+    text-decoration: none;
 }
