@@ -1,35 +1,28 @@
-// MODEL PLATS
+// MODEL SOIREES
 var mongoose = require('mongoose');
 
-
-
-var platsSchema = new mongoose.Schema({
+var soireesSchema = new mongoose.Schema({
     description: String,
-    note: String,
-    commentaires: String,
     date: String,
-    ingredient1: String,
+    commentaires: String,
+    invite1: String,
     image: String,
-    ingredient1: String,
-    ingredient2: String,
-    ingredient3: String,
-    ingredient4: String
+    invites:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Invites'
+    }]
 });
 
-var Plats = {
+var Soirees = {
 
-    model: mongoose.model('Plats', platsSchema),
+    model: mongoose.model('Soirees', soireesSchema),
 
     create: function (req, res) {
-        Plats.model.create({
+        Soirees.model.create({
             description: req.body.description,
             note: req.body.note,
             commentaires: req.body.commentaires,
             date: req.body.date,
-            ingredient1: req.body.ingredient1,
-            ingredient2: req.body.ingredient2,
-            ingredient3: req.body.ingredient3,
-            ingredient4: req.body.ingredient4,
             image: req.body.image
         }, function () {
             res.sendStatus(200);
@@ -37,21 +30,19 @@ var Plats = {
     },
 
     findAll: function (req, res) {
-        Plats.model.find(function (err, data) {
+        Soirees.model.find()
+        .populate('invites')
+        .exec(function (err, data) {
             res.send(data);
         });
     },
 
     update: function (req, res) {
-        Plats.model.findByIdAndUpdate(req.params.id, {
+        Soirees.model.findByIdAndUpdate(req.params.id, {
             description: req.body.description,
             note: req.body.note,
             commentaires: req.body.commentaires,
             date: req.body.date,
-            ingredient1: req.body.ingredient1,
-            ingredient2: req.body.ingredient2,
-            ingredient3: req.body.ingredient3,
-            ingredient4: req.body.ingredient4,
             image: req.body.image
         }, function () {
             res.sendStatus(200);
@@ -59,7 +50,7 @@ var Plats = {
     },
 
     delete: function (req, res) {
-        Plats.model.findByIdAndRemove(req.params.id, function () {
+        Soirees.model.findByIdAndRemove(req.params.id, function () {
             res.sendStatus(200);
         })
     }
@@ -67,4 +58,4 @@ var Plats = {
 
 
 
-module.exports = Plats;
+module.exports = Soirees;

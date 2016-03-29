@@ -1,0 +1,402 @@
+body {
+    /*margin: 0 auto;
+    padding: 0 auto;*/
+    overflow-x: hidden;
+    background-color: lightgoldenrodyellow;
+}
+
+
+
+.navbar {
+    height: 10%;
+    box-shadow: 1px 0px 2px white;
+    border-radius: 0px;
+}
+
+.nav > li > a {
+    transition: 0.4s;
+    color: black;
+}
+
+.nav > li > a:focus,
+.nav > li > a:hover {
+    color: white;
+    background-color: black;
+}
+
+a:active {
+    outline: 0;
+}
+
+.container {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 100%;
+}
+
+.imgAdd {
+    margin-top: -10px;
+    margin-left: -10px;
+    width: 250px;
+    height: 130px;
+    background-size: cover;
+    border-radius: 6px 6px 0px 0px;
+    transition: 0.5s;
+}
+
+.imgAdd:hover {}
+
+.listInput {
+    display: inline-block;
+}
+
+.upDel {
+    float: right;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+#preview {
+    width: 150px;
+    height: 117px;
+    box-shadow: 1px 1px 3px black;
+}
+
+.header {
+    height: 300px;
+    background-color: black;
+    width: 100%;
+    margin-top: -40px;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    width: 100%;
+    color: white;
+    padding-top: 66px;
+    font-size: 10em;
+    text-shadow: 0px 0px 20px pink;
+}
+
+.big {
+    box-shadow: 1px 0px 3px black;
+    background-color: white;
+    text-align: center;
+    padding-bottom: 20px;
+    font-style: italic;
+    height: 109px;
+}
+
+.modal-content {
+    background-color: white;
+}
+
+.parcourir {
+    background-color: white;
+    color: black;
+    border-radius: 0px;
+}
+
+.modal-add-btn {
+    border-radius: 0px;
+    padding: 5px;
+    width: 200px;
+    background-color: black;
+    border: 1px black solid;
+    text-shadow: 0px 0px 1px black;
+    transition: 0.2s;
+    box-shadow: 1px 1px 3px grey;
+}
+
+.platAdd {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    height: 330px;
+    padding-top: 20px;
+    width: 70%;
+}
+
+.platAdd > h2 {
+    text-align: center;
+}
+
+.modal-header {
+    border-bottom: 1px white solid;
+    background-color: white;
+    text-align: center;
+}
+
+.modal-footer {
+    border-top: 1px white solid;
+}
+
+.imgForm {
+    margin-top: 50px;
+    margin-left: 50%;
+    transform: translateX(-30%);
+}
+
+input[type="file"] {
+    margin-top: 10px;
+    display: inline-block;
+    left: 0;
+}
+
+.btn {
+    padding: 0;
+    margin-left: 10px;
+}
+
+.firstPart {
+    margin-left: 5%;
+    padding-left: 0px;
+    width: 90%;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px black solid;
+    border-radius: 0px;
+    background-color: white;
+}
+
+.addPlatField {
+    border-right: 1px solid black;
+    padding-right: 10px;
+    padding-bottom: 20px;
+}
+
+.addInviteField {
+    border-right: 1px solid black;
+    padding-right: 10px;
+    padding-bottom: 20px;
+}
+
+.searchInput {
+    border-radius: 0px;
+    box-shadow: none;
+    color: dimgrey;
+    margin-top: -10px;
+    width: 180px;
+}
+
+.orderBy {
+    width: 180px;
+}
+
+.button,
+input,
+select,
+textarea {
+    border-radius: 4px;
+}
+
+.list-group {
+    text-align: center;
+}
+
+.plat-field {
+    border-right: none;
+    padding-right: 0px;
+}
+
+.list-group-item {
+    width: 300px;
+    border: none;
+    background-color: lightgoldenrodyellow;
+    display: inline-block;
+    margin-top: -6px;
+    padding-top: -10px;
+}
+
+.form-group {
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.form-group:hover {
+    box-shadow: 0px 0px 20px grey;
+}
+
+.btn-default {
+    background-color: white;
+    border: none;
+    padding: 5px;
+    color: black;
+    min-width: 59px;
+    transition: 0.2s;
+}
+
+.recetteButton {
+    background-color: palegreen;
+}
+
+.btn-default:hover {
+    color: white;
+    background-color: #31b0d5;
+}
+
+.secondForm {
+    box-shadow: 0px 0px 4px black;
+    width: 250px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.secondPart {
+    text-align: right;
+    background-color: rgba(0, 0, 0, 0.0);
+    color: white;
+    border: none;
+    border-bottom: 1px white solid;
+    padding-right: 3px;
+}
+
+input#inputMessage .form-control.secondPart..ng-pristine.ng-valid.ng-not-empty.ng-touched {
+    box-shadow: none;
+}
+
+input#inviteinputMessage .inviteform-control.ng-pristine.ng-valid.ng-not-empty.ng-touched {
+    box-shadow: none;
+    font-size: 1em;
+    font-color: dimgrey;
+    text-align: center;
+}
+
+.firstChild {
+    text-align: center;
+    border: none;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-shadow: 0px 0px 3px pink;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+.invite-form-control {
+    border-radius: 0px;
+    color: #555;
+}
+
+
+
+
+.btn-danger {
+    padding: 5px 10px 5px 10px;
+    border: none;
+    text-shadow: 1px 1px 1px black;
+    box-shadow: 1px 1px 2px black;
+    transition: 0.2s;
+}
+
+.hmm {
+    background-color: lightgoldenrodyellow;
+}
+
+.modal-header2 {
+    height: 250px;
+    background-size: 900px 600px;
+    background-position: center;
+    box-shadow: 0px 1px 3px black;
+}
+
+.modal-title2 {
+    font-size: 3em;
+    padding-top: -10px;
+    padding: 100px;
+    font-family: 'Lobster';
+    color: white;
+    text-shadow: 0px 0px 2px black;
+}
+
+.subPart {
+    margin-top: 15px;
+}
+
+.subPart2 {
+    margin-top: 15px;
+}
+
+.subPart > h3 {
+    color: white;
+    text-shadow: 0px 0px 3px black;
+}
+
+.subPart2 > h3 {
+    color: white;
+    text-shadow: 0px 0px 3px black;
+}
+
+.firstBlock {
+    margin-top: 30px;
+}
+
+.thirdPart {
+    color: black;
+}
+
+.boxIng {
+    width: 850px;
+}
+
+.ingList {
+    list-style-type: none;
+    text-align: center;
+    padding-left: -40px;
+}
+
+.ingList2 {
+    list-style-type: none;
+    text-align: center;
+    padding-left: -40px;
+}
+
+.ingForm {
+    width: 30%;
+}
+
+.recettePrepa {
+    width: 800px;
+}
+
+.invite-form-control {
+    box-shadow: none;
+    border-radius: 0px;
+    width: 30%;
+}
+
+
+
+
+.invitespanel {
+  width:90%;
+  margin:2em auto;
+}
+
+.restrictionstitre {
+    border-radius: 0px;
+    box-shadow: none;
+    color: grey;
+    margin-left: 45px;
+    margin-top: 20px;
+    margin-bottom: -30px;
+
+}
+
+#invitescheckbox {
+    margin-top: 50px;
+    margin-left: 50px; 
+    margin-bottom: 20px;
+}
+
+
+#invitescheckbox2 {
+    text-align: left;
+    margin-left: 300px; 
+    margin-bottom: 20px;
+}
