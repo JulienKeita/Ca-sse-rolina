@@ -38,12 +38,12 @@
             </div>
             <div class="modal-body" ng-if="i==1">
                 <div class="row">
-                    <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="description">
-                    <input type="text" class="control firstPart" id="inputMessage" placeholder="Date de la soirée jj/mm/AAAA" ng-model="date">
+                    <input type="text" class="form-control firstPart" id="inputMessage" placeholder="Titre" ng-model="soiree.description">
+                    <input type="text" class="control firstPart" id="inputMessage" placeholder="Date de la soirée jj/mm/AAAA" ng-model="soiree.date">
                 </div>
                 <div style="text-align:center;">
                     <form>
-                        <input class="parcourir" type='file' ng-model='imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
+                        <input class="parcourir" type='file' ng-model='soiree.imageFile' base-sixty-four-input onchange="angular.element(this).scope().previewFile(this)">
                     </form>
                     <img id="preview" style="margin-top:30px;" src="{{soiree.image || 'http://i.istockimg.com/file_thumbview_approve/31297488/6/stock-illustration-31297488-party-and-celebration-icon-set-.jpg'}}">
                 </div>
@@ -68,9 +68,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-default recetteButton" ng-click="add()" style="float:right;">Valider</button>
-                <button class="btn btn-danger" ng-click="precedent(i)" style="float:right;" ng-hide="i==1">Précédent</button>
-                <button class="btn btn-default addbutton1" ng-click="suivant(i)" style="float:right;" ng-hide="i==2">Suivant</button>
+                <button type="submit" class="btn btn-default recetteButton" ng-click="add()" style="float:right;" data-dismiss="modal">Valider</button>
+                <button class="btn btn-danger" ng-click="i = i - 1" style="float:right;" ng-hide="i==1">Précédent</button>
+                <button class="btn btn-default addbutton1" ng-click="i = i + 1" style="float:right;" ng-hide="i==2">Suivant</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" style="float:right;">Annuler</button>
             </div>
         </div>
@@ -90,7 +90,7 @@
                     <input type="text" class="form-control secondPart" id="inputMessage" ng-model="soiree.date" placeholder="Date de la soirée">
                 </div>
                 <span class="upDel">
-                    <button type="submit" class="btn btn-default recetteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#{{soiree._id}}">Détails</button>
+                    <button type="submit" class="btn btn-default recetteButton" class="btn btn-info btn-lg modal-add-btn" data-toggle="modal" data-target="#modalId" ng-click="showDetails(soiree)">Détails</button>
                     <button type="submit" class="btn btn-default addbutton1" ng-click="update(soiree)">Mettre à jour</button>
                     <button type="submit" class="btn btn-danger" ng-click="delete(soiree)">X</button>
                 </span>
@@ -100,11 +100,11 @@
 </ul>
 
 <!-- Modale fiche soirées -->
-<div class="modal fade" ng-repeat="soiree in soirees | filter:{description: query} | orderBy:soiree" id="{{soiree._id}}" role=" dialog">
+<div class="modal fade" id="modalId" role=" dialog"> <!--ng-repeat="soiree in soirees | filter:{description: query} | orderBy:soiree" id="{{soiree._id}}" role=" dialog">-->
     <div class="modal-dialog modal-lg hmm">
         <div class="modal-content2" style="text-align:center;">
-            <div class="modal-header2" ng-style="{ 'background-image': 'url({{soiree.image || 'http://i.istockimg.com/file_thumbview_approve/31297488/6/stock-illustration-31297488-party-and-celebration-icon-set-.jpg'}})'}">
-                <h2 class="modal-title2">{{soiree.description}}</h2>
+            <div class="modal-header2" ng-style="{ 'background-image': 'url({{soireeSelected.image || 'http://i.istockimg.com/file_thumbview_approve/31297488/6/stock-illustration-31297488-party-and-celebration-icon-set-.jpg'}})'}">
+                <h2 class="modal-title2">{{soireeSelected.description}}</h2>
             </div>
             <div class="row">
                 <div class="col-md-6">

@@ -16,15 +16,7 @@ var Invites = {
     model: mongoose.model('Invites', invitesSchema),
 
     create: function (req, res) {
-        Invites.model.create({
-            description: req.body.description,
-            preferences: req.body.preferences,
-            restrictions: req.body.restrictions,
-            commentaires: req.body.commentaires,
-            image: req.body.image,
-            date: req.body.date
-
-        }, function () {
+        Invites.model.create(req.body, function () {
             res.sendStatus(200);
         })
     },
@@ -36,14 +28,7 @@ var Invites = {
     },
 
     update: function (req, res) {
-        Invites.model.findByIdAndUpdate(req.params.id, {
-            description: req.body.description,
-            preferences: req.body.preferences,
-            restrictions: req.body.restrictions,
-            commentaires: req.body.commentaires,
-            image: req.body.image,
-            date: req.body.date
-        }, function () {
+        Invites.model.findByIdAndUpdate(req.params.id, req.body, function () {
             res.sendStatus(200);
         })
     },

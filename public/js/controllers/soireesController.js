@@ -3,16 +3,12 @@ var selectInvites = [];
 
 function soireesController($scope, $http, soireesService, invitesService, platsService) {
     $scope.title = "Soiree List";
+    $scope.soiree = {};
     $scope.plats = [];
     $scope.invites = [];
     $scope.i = 1;
-    $scope.suivant = function () {
-        $scope.i += 1;
-    }
-    $scope.precedent = function () {
-        $scope.i -= 1;
-    }
 
+    
     function load() {
         soireesService.get().then(function (res) {
             $scope.soirees = res.data;
@@ -30,27 +26,10 @@ function soireesController($scope, $http, soireesService, invitesService, platsS
     $scope.addToSoireesPlats = function (Plat) {}
 
 
-
     $scope.add = function () {
-        var data = {};
-        data.description = $scope.description;
-        data.note = $scope.note;
-        data.commentaires = $scope.commentaires;
-        data.invites = $scope.invites;
-        data.plats = $scope.plats;
-        data.date = $scope.date;
-        data.image = $scope.imageFile;
-        soireesService.create(data).then(function (res) {
+        soireesService.create($scope.soiree).then(function (res) {
             load();
         });
-        $scope.description = "";
-        $scope.note = "";
-        $scope.commentaires = "";
-        $scope.date = "";
-        $scope.plats = [];
-        $scope.invites = [];
-        $scope.imageFile = "";
-        location.reload();
     }
     $scope.update = function (soirees) {
         soireesService.update(soirees._id, soirees).then(function (res) {});
@@ -66,13 +45,17 @@ function soireesController($scope, $http, soireesService, invitesService, platsS
         var reader = new FileReader();
         reader.onloadend = function () {
             preview.src = reader.result;
-            $scope.imageFile = reader.result;
+            $scope.soiree.imageFile = reader.result;
         }
         if (file) {
             reader.readAsDataURL(file);
         } else {
             preview.src = "";
         }
+    }
+    
+    $scope.showDetails = function(soiree){
+        $scope.soireeSelected = soiree;
     }
 
     load();
